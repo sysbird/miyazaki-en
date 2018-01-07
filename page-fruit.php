@@ -34,13 +34,11 @@
 			$the_query = new WP_Query($args);
 			if ( $the_query->have_posts() ) :
 		?>
-				<div class="tile masonry">
+				<div class="tile">
 
 					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 						<?php get_template_part( 'content', 'fruits' ); ?>
 					<?php endwhile; ?>
-
-					<div class="pagenation more"><?php next_posts_link( 'もっとみる', $the_query->max_num_pages ) ?><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/loading.gif" alt="" class="loading"></div>
 				</div>
 
 		<?php endif;

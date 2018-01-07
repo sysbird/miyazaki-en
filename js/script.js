@@ -27,30 +27,6 @@ jQuery(function() {
 	});
 */
 
-	// infinitescroll for vegetables masonry
-	if( 0 < jQuery( '.more.pagenation' ).length ){
-		// infinitescroll
-		var loading = jQuery( 'img.loading' ).attr( 'src' );
-		jQuery( '.tile' ).infinitescroll( {
-			navSelector : ".more.pagenation",
-			nextSelector : ".more.pagenation a",
-			itemSelector : ".tile .type-fruits",
-			bufferPx: 800,
-			loading: {
-				finishedMsg: '',
-				msgText  : '読み込み中...',
-				img: loading,
-			}
-		},
-		function( newElements ){
-			var newElems = jQuery( newElements ).css({ opacity: 0 });
-			newElems.imagesLoaded(function(){
-				newElems.animate({ opacity: 1 });
-				jQuery( '.tile.masonry' ).masonry( 'appended', newElems, true );
-			});
-		} );
-	}
-
 	// Google Maps
 	if( jQuery( '#map-canvas').length ){
 		google.maps.event.addDomListener(window, 'load',  myz_google_maps);
@@ -58,6 +34,8 @@ jQuery(function() {
 
 	jQuery( window ).load(function() {
 		jQuery( ".home .tile .type-fruits" ).tile();
+
+		jQuery( ".fruit .tile .type-fruits" ).tile();
 
 		jQuery( '.tile.masonry ' ).masonry({
 			itemSelector: '.type-fruits',

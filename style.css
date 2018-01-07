@@ -1,8 +1,8 @@
 @charset "utf-8";
 /*
-Theme Name: miyazakien
+Theme Name: miyazaki-en
 Theme URI:
-Description:miyazaki_en is a child theme via BirdFIELD.
+Description:miyazaki-en is a child theme via BirdFIELD.
 Author: Sysbird
 Author URI: https://profiles.wordpress.org/sysbird
 Template:   birdfield
@@ -11,28 +11,71 @@ Version: 1.00
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: green, one-column, responsive-layout
-Text Domain: miyazaki_en
+Text Domain: miyazaki-en
 
 This theme, like WordPress, is licensed under the GPL.
 */
+
+#header #branding {
+	padding:  0;
+}
+
+#header #branding #site-title {
+	background: url("images/logo.png") no-repeat left top;
+	background-size: contain;
+	width: 250px;
+	height: 80px;
+	text-indent: -119988px;
+	overflow: hidden;
+}
+
+#header #branding #site-title a {
+	display: block;
+	width: 280px;
+	height: 80px;
+	position: relative;
+	z-index: 2;
+}
+
+#header.mini #branding #site-title,
+#header.mini #branding #site-title a {
+	width: 225px;
+	height: 60px;
+}
+
+#header #branding #site-description {
+	display: none;
+}
 
 #header:not(.mini)  #menu-wrapper .menu #small-menu:before {
 	padding-top: 5px;
 }
 
-.home #wall .widget {
-	position: relative;
-	width: 40%;
-	height: 40%;
-	border-radius: 50%;
-	padding: 0;
-	margin: -60% auto 5%;
-	max-width: 300px;
-	max-height: 300px;
+.home #wall .widget:nth-child(n+2),
+.blog #wall .widget:nth-child(n+2) {
+  display: block;
 }
 
-.home #wall .widget:hover {
-	background-color: rgba(255, 255, 255, 0.2);
+.home #wall .widget-area-header, .blog #wall .widget-area-header {
+	border-radius:  0;
+	width: 80%;
+	height: 60%;
+	background:  transparent;
+	border: solid 3px #FFF;
+}
+
+.home #wall .widget-area-header h3,
+.blog #wall .widget-area-header h3 {
+	color: #FFF;
+	font-size: 7vw;
+	font-weight: bold;
+}
+
+.home #wall .widget-area-header .textwidget ,
+.blog #wall .widget-area-header .textwidget {
+	color: #FFF;
+	font-size: 5vw;
+	text-align: left;
 }
 
 .home #content .container {
@@ -49,6 +92,7 @@ This theme, like WordPress, is licensed under the GPL.
 
 .home #content .more {
 	margin-bottom: 0; }
+
 #content .more a {
 	display: block;
 	background-color: #817775;
@@ -92,7 +136,7 @@ This theme, like WordPress, is licensed under the GPL.
 }
 
 #footer #widget-area {
-	background: #f2efe8;
+	background: #FFF;
 }
 
 #footer #widget-area .widget,
@@ -115,7 +159,7 @@ This theme, like WordPress, is licensed under the GPL.
 
 #footer #widget-area .right  {
 	width: 100%;
-	height: 420px;
+	height: 600px;
 }
 
 .entry-header .author,
@@ -272,47 +316,8 @@ This theme, like WordPress, is licensed under the GPL.
 	font-weight: normal;
 }
 
-#content .fruits-meta {
-	overflow: hidden;
-	*zoom: 1;
-}
-
-.single #content .fruits-meta {
-	margin-bottom: 1.6em;
-}
-
-#content .fruits-meta span a {
-	display: block;
-	float: left;
-	margin-right: 0.4em;
-	background: #f8f8f6 ;
-	font-size: 0.9em;
-	width: 4.2em;
-	height: 4.2em;
-	padding-top: 1.6em;
-	text-align: center;
-	border-radius: 50%;
-	color: #817775;
-}
-
-#content .fruits-meta span a:hover {
-	background: #f1efe9;
-	text-decoration: none;
-}
-
 #content .tile .pagenation img {
 	display: none;
-}
-
-/* Infinite Scroll loader */
-#infscr-loading,
-#content .tile .pagenation a {
-	text-align: center;
-	z-index: 100;
-	position: absolute;
-	left:  0;
-	bottom: 0;
-	width: 100%;
 }
 
 /* fruits_card */
@@ -343,16 +348,47 @@ This theme, like WordPress, is licensed under the GPL.
 	color: #6eb443;
 }
 
+.page.chezrose #content .hentry .entry-header .entry-title,
+.page.reserve-chezrose #content .hentry .entry-header .entry-title,
+#content .chezrose h2 a,
+#content .chezrose h3 a {
+	color: #cf365a;
+}
+
+.home #content section.chezrose {
+	background:  #fff0e8;
+}
+
+.home #content section.chezrose img {
+	width: 400px;
+	max-width: 100%;
+}
+
 .page #content h2 {
 	color: #666;
 	border-color: #666;
 }
 
-
 img.alignleft, img.alignright, img.aligncenter {
 	margin-bottom:  1.6em;
 }
 
+@media screen and (min-width: 480px) {
+
+	.home #wall .widget-area-header, .blog #wall .widget-area-header {
+		border-width: 5px;
+	}
+
+	.home #wall .widget-area-header h3,
+	.blog #wall .widget-area-header h3 {
+		font-size: 30px;
+	}
+
+	.home #wall .widget-area-header .textwidget ,
+	.blog #wall .widget-area-header .textwidget {
+		font-size: 24px;
+	}
+}
 
 @media screen and (min-width: 660px) {
 
@@ -379,8 +415,9 @@ img.alignleft, img.alignright, img.aligncenter {
 		content: "\f082";
 	}
 
-	.home #wall .widget {
-		margin-top: 5%;
+	.home #wall .widget-area-header, .blog #wall .widget-area-header {
+		width: 60%;
+		height: 50%;
 	}
 
 	.home #content .information .container {
@@ -427,17 +464,29 @@ img.alignleft, img.alignright, img.aligncenter {
 
 @media screen and (min-width: 930px) {
 
+	.home #wall .widget-area-header, .blog #wall .widget-area-header {
+		width: 50%;
+		height: 40%;
+		max-width: 800px;
+		border-width: 7px;
+	}
+
+	.home #wall .widget-area-header h3,
+	.blog #wall .widget-area-header h3 {
+		font-size: 42px;
+	}
+
+	.home #wall .widget-area-header .textwidget ,
+	.blog #wall .widget-area-header .textwidget {
+		font-size: 24px;
+	}
+
 	#content .hentry .entry-header .entry-title,
 	.home #content h2 {
 	 	font-size: 2.2rem; }
 
 	#content h2 {
 		font-size: 2rem; }
-
-
-	.home #wall .widget {
-		margin-top: 100px;
-	}
 
 	#content .tile .type-fruits {
 		width: 300px;
@@ -449,7 +498,7 @@ img.alignleft, img.alignright, img.aligncenter {
 	}
 
 	#footer #widget-area {
-		height: 440px;
+		height: 630px;
 	}
 
 	#footer #widget-area .left {

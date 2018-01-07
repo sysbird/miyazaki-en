@@ -7,7 +7,9 @@
 			<div class="headerimage">
 				<img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" >
 			</div>
-			<?php dynamic_sidebar( 'widget-area-header' ); ?>
+			<div class='widget-area-header'>
+				<?php dynamic_sidebar( 'widget-area-header' ); ?>
+			</div>
 		</section>
 	<?php endif; ?>
 
@@ -39,7 +41,7 @@
 			while ( $the_query->have_posts() ) : $the_query->the_post();
 	?>
 
-	<section class="information">
+	<section class="information <?php  echo get_post_field( 'post_name', get_the_ID() ); ?>">
 		<div class="container">
 			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 

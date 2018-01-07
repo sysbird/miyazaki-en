@@ -8,7 +8,7 @@ function miyazaki_en_setup() {
 	register_default_headers( array(
 		'birdfield_child'		=> array(
 		'url'			=> '%2$s/images/header.jpg',
-		'thumbnail_url'	=> '%2$s/images/header-thumbnail.jpg',
+		'thumbnail_url'		=> '%2$s/images/header-thumbnail.jpg',
 		'description_child'	=> 'birdfield'
 		)
 	) );
@@ -38,8 +38,8 @@ function miyazaki_en_init() {
 
 	// add post type fruits
 	$labels = array(
-		'name'		=> '宮崎園でとれる果樹',
-		'all_items'	=> '宮崎園でとれる果樹の一覧',
+		'name'		=> '宮崎園でとれるくだもの',
+		'all_items'	=> '宮崎園でとれるくだもの一覧',
 		);
 
 	$args = array(
@@ -104,14 +104,11 @@ add_action( 'pre_get_posts', 'miyazaki_en_query' );
 function miyazaki_en_scripts() {
 
 	wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
-	wp_enqueue_style( 'miyazaki_en-magnific-popup', get_stylesheet_directory_uri().'/js/Magnific-Popup/magnific-popup.css' );
 
 	if ( is_page() || is_home() ) {
 		wp_enqueue_script( 'googlemaps', '//maps.googleapis.com/maps/api/js?key=AIzaSyCEFPK8jnSbZX82eWyq8KGSDdttomacAIU');
 	}
 
-	wp_enqueue_script( 'miyazaki_en-infinitescroll', get_stylesheet_directory_uri() .'/js/jquery.infinitescroll.js', array( 'jquery' ), '1.1.0');
-	wp_enqueue_script( 'miyazaki_en-magnific-popup', get_stylesheet_directory_uri() .'/js/Magnific-Popup/jquery.magnific-popup.min.js', array( 'jquery' ), '3.3.0');
 	wp_enqueue_script( 'miyazaki_en', get_stylesheet_directory_uri() .'/js/script.js', array( 'jquery' , 'birdfield' ), '1.00');
 }
 add_action( 'wp_enqueue_scripts', 'miyazaki_en_scripts' );
@@ -157,7 +154,6 @@ function miyazaki_en_fruits_calendar ( $atts ) {
 				$html .= $html_table_footer;
 			}
 
-			$html .= '<div class="fruits-meta">' .miyazaki_en_get_type_label( $type ) .'</div>';
 			$type_current = $type;
 			$html .= $html_table_header;
 		}
@@ -207,7 +203,7 @@ function miyazaki_en_fruits_pickup ( $atts ) {
 		'posts_per_page' => 6,
 		'post_type' => 'fruits',
 		'post_status' => 'publish',
-		'meta_key' => '_thumbnail_id',
+//		'meta_key' => '_thumbnail_id',
 		'orderby'	 => 'rand',
 	);
 
@@ -356,13 +352,47 @@ function miyazaki_en_get_fruits( $params ) {
 // show catchcopy at fruits tile
 function miyazaki_en_get_catchcopy() {
 
-//	$catchcopy = get_field( 'catchcopy' );
-//	if( $catchcopy ){
-//		return '<p class="catchcopy">' .$catchcopy .'</p>';
-//	}
+	$catchcopy = get_field( 'catchcopy' );
+	if( $catchcopy ){
+		return '<p class="catchcopy">' .$catchcopy .'</p>';
+	}
 
 	return NULL;
 }
+
+
+//////////////////////////////////////////////////////
+// show eyecarch on dashboard
+function miyazaki_en_manage_posts_columns( $columns ) {
+	$columns[ 'thumbnail' ] = __( 'Thumbnail' );
+	return $columns;
+}
+add_filter( 'manage_posts_columns', 'miyazaki_en_manage_posts_columns' );
+add_filter( 'manage_pages_columns', 'miyazaki_en_manage_posts_columns' );
+
+function miyazaki_en_manage_posts_custom_column( $column_name, $post_id ) {
+	if ( 'thumbnail' == $column_name ) {
+		$thum = get_the_post_thumbnail( $post_id, 'small', array( 'style'=>'width:100px;height:auto;' ));
+	} if ( isset( $thum ) && $thum ) {
+		echo $thum;
+	} else {
+		echo __( 'None' );
+	}
+}
+add_action( 'manage_posts_custom_column', 'miyazaki_en_manage_posts_custom_column', 10, 2 );
+add_action( 'manage_pages_custom_column', 'miyazaki_en_manage_posts_custom_column', 10, 2 );
+
+//////////////////////////////////////////////////////
+// add body class
+function miyazaki_en_body_class( $classes ) {
+	if ( is_page() ) {
+		$page = get_post( get_the_ID() );
+		$classes[] = $page->post_name;
+	}
+
+	return $classes;
+}
+add_filter( 'body_class', 'miyazaki_en_body_class' );
 
 //////////////////////////////////////////////////////
 // login logo

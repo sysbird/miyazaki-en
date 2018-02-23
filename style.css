@@ -25,13 +25,14 @@ This theme, like WordPress, is licensed under the GPL.
 	background-size: contain;
 	width: 250px;
 	height: 80px;
+	margin: 0;
 	text-indent: -119988px;
 	overflow: hidden;
 }
 
 #header #branding #site-title a {
 	display: block;
-	width: 280px;
+	width: 260px;
 	height: 80px;
 	position: relative;
 	z-index: 2;
@@ -84,6 +85,7 @@ This theme, like WordPress, is licensed under the GPL.
 
 .home #content section:nth-child(2n +1) {
 	background: #F8F8F6;
+	background: #f9f7f3;
 }
 
 #content .more {
@@ -95,7 +97,7 @@ This theme, like WordPress, is licensed under the GPL.
 
 #content .more a {
 	display: block;
-	background-color: #817775;
+	background-color: #6f675d;
 	color: #FFF;
 	padding: 0.8em;
 	border-radius: 4px;
@@ -120,7 +122,7 @@ This theme, like WordPress, is licensed under the GPL.
 
 #content #blog ul.article .hentry .entry-header,
 #content  #blog ul.article .hentry .entry-header .entry-title {
-	color: #817775 !important;
+	color: #6f675d !important;
 }
 
 .home #content #blog ul.article, .blog #content #blog ul.article {
@@ -136,31 +138,57 @@ This theme, like WordPress, is licensed under the GPL.
 }
 
 #footer #widget-area {
-	background: #FFF;
+	background: #f9f7f3;
 }
 
 #footer #widget-area .widget,
 #footer #widget-area .widget a,
 #footer #searchform #s {
-	color: #2e1a00;
+	color: #6f675d;
 }
 
 #footer #searchform #searchsubmit {
-	background-color: #817775;
+	background-color: #6f675d;
 }
 
 #footer #searchform #s {
-	border: solid 1px #817775;
+	border: solid 1px #6f675d;
 }
 
 #footer #widget-area .widget h3 {
-	border-bottom: dotted 1px #817775;
+	border-bottom: dotted 1px #6f675d1;
 }
 
 #footer #widget-area .right  {
 	width: 100%;
-	height: 600px;
 }
+
+#footer #widget-area a.contact {
+	text-decoration: none;
+	background-color: #6f675d;
+	color: #FFF;
+	padding: 5px 10px;
+	line-height:  2.4;
+	border-radius: 3px;
+	font-size: 0.9em;
+}
+
+#footer #widget-area .contact:before {
+	content: "\f0e0";
+	display: inline-block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	padding-right: 5px;
+}
+
+#footer #widget-area .menu .home {
+	display: none;
+}
+
 
 .entry-header .author,
 .entry-meta {
@@ -188,7 +216,7 @@ This theme, like WordPress, is licensed under the GPL.
 	max-width: 200px;
 	padding: 0.8em;
 	border-radius:  4px;
-	background-color: #817775;
+	background-color: #6f675d;
 	color: #FFF;
 	cursor: pointer;
 }
@@ -198,6 +226,10 @@ This theme, like WordPress, is licensed under the GPL.
 	height: 320px;
 	width: 100%;
 	margin: 1.6em 0 0;
+}
+
+.home #map-canvas {
+	margin-top: 0;
 }
 
 #content .tile {
@@ -238,7 +270,7 @@ This theme, like WordPress, is licensed under the GPL.
 #content .type-fruits p.catchcopy {
 	display: inline;
 	font-size: 0.9em;
-	color: #817775;
+	color: #6f675d;
 	margin-bottom: 0; }
 
 .single #content .type-fruits p.catchcopy {
@@ -299,8 +331,7 @@ This theme, like WordPress, is licensed under the GPL.
 
 #content table.fruits-calendar td span.best {
 	color: #FFF;
-	background: #ae3f14;
-/*	border-right: solid 1px #e6e6e6; */
+	background: #ea7b19;
 }
 
 #content table.fruits-calendar td span.half {
@@ -314,6 +345,29 @@ This theme, like WordPress, is licensed under the GPL.
 #content .type-fruits strong {
 	background: linear-gradient(transparent 30%, #FCFFD6 0%);
 	font-weight: normal;
+}
+
+#content .fruits-meta {
+	overflow: hidden;
+	*zoom: 1;
+}
+
+.single #content .fruits-meta {
+	margin-bottom: 1.6em;
+}
+
+#content .fruits-meta span {
+	display: block;
+	float: left;
+	margin-right: 0.4em;
+	background: #72ae2d;
+	color: #fff;
+	font-size: 0.9em;
+	width: 4.2em;
+	height: 4.2em;
+	padding-top: 1.6em;
+	text-align: center;
+	border-radius: 50%;
 }
 
 #content .tile .pagenation img {
@@ -345,7 +399,7 @@ This theme, like WordPress, is licensed under the GPL.
 .page #content .hentry .entry-header .entry-title,
 #content h2 a,
 #content h3 a {
-	color: #6eb443;
+	color: #72ae2d;
 }
 
 .page.chezrose #content .hentry .entry-header .entry-title,
@@ -357,6 +411,7 @@ This theme, like WordPress, is licensed under the GPL.
 
 .home #content section.chezrose {
 	background:  #fff0e8;
+	background: #f6f4ed;
 }
 
 .home #content section.chezrose img {
@@ -497,8 +552,12 @@ img.alignleft, img.alignright, img.aligncenter {
 		padding:  20px;
 	}
 
+	#widget-area .widget {
+		margin:  20px 0 0 0;
+	}
+
 	#footer #widget-area {
-		height: 630px;
+		height: 550px;
 	}
 
 	#footer #widget-area .left {
@@ -516,3 +575,27 @@ img.alignleft, img.alignright, img.aligncenter {
 		float: right;
 	}
 }
+
+.home #content .headerimage .slideitem .caption {
+  font-size: 4.6vw;
+  width: 80%;
+}
+
+@media screen and (min-width: 660px) {
+	body:not(.home) .fixed-header #content {
+		margin-top: 80px;
+	}
+
+	.home #content .headerimage .slideitem .caption {
+	  font-size: 3.4vw;
+	  width: 60%;
+	}
+}
+
+@media screen and (min-width: 930px) {
+	.home #content .headerimage .slideitem .caption {
+		  font-size: 30px;
+		  width: 600px;
+	}
+}
+

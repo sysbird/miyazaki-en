@@ -38,8 +38,8 @@ function miyazaki_en_init() {
 
 	// add post type fruits
 	$labels = array(
-		'name'		=> '宮崎園でとれるくだもの',
-		'all_items'	=> '宮崎園でとれるくだもの一覧',
+		'name'		=> 'くだもの・野菜',
+		'all_items'	=> 'くだもの・野菜一覧',
 		);
 
 	$args = array(
@@ -52,6 +52,23 @@ function miyazaki_en_init() {
 		);
 
 	register_post_type( 'fruits', $args );
+
+	// add post type sweets
+	$labels = array(
+		'name'		=> '焼き菓子',
+		'all_items'	=> '焼き菓子の一覧',
+		);
+
+	$args = array(
+		'labels'			=> $labels,
+		'supports'		=> array( 'title','editor', 'thumbnail', 'custom-fields' ),
+		'public'			=> true,	// 公開するかどうが
+		'show_ui'		=> true,	// メニューに表示するかどうか
+		'menu_position'	=> 5,		// メニューの表示位置
+		'has_archive'		=> true,	// アーカイブページの作成
+		);
+
+	register_post_type( 'sweets', $args );
 
 	// add permalink rule for fruits
 	add_rewrite_rule('fruits/type/([a-zA-Z_]+)/?$' ,'index.php?post_type=fruits&type=$matches[1]', 'top');
@@ -139,8 +156,6 @@ function miyazaki_en_fruits_calendar ( $atts ) {
 		'posts_per_page' => -1,
 		'post_type' => 'fruits',
 		'post_status' => 'publish',
-		'meta_key'	=> 'type',
-		'orderby'	 => 'meta_value',
 	);
 
 	$the_query = new WP_Query($args);
@@ -154,6 +169,7 @@ function miyazaki_en_fruits_calendar ( $atts ) {
 				$html .= $html_table_footer;
 			}
 
+			$html .= '<div class="fruits-meta">' .miyazaki_en_get_type_label( $type ) .'</div>';
 			$type_current = $type;
 			$html .= $html_table_header;
 		}
@@ -196,14 +212,13 @@ add_shortcode( 'miyazaki_en_fruits_calendar', 'miyazaki_en_fruits_calendar' );
 //////////////////////////////////////////////////////
 // Shortcode Vegitables Pickup at home
 function miyazaki_en_fruits_pickup ( $atts ) {
-
 	ob_start();
 
 	$args = array(
 		'posts_per_page' => 6,
 		'post_type' => 'fruits',
 		'post_status' => 'publish',
-//		'meta_key' => '_thumbnail_id',
+		'meta_key' => '_thumbnail_id',
 		'orderby'	 => 'rand',
 	);
 
@@ -223,6 +238,12 @@ function miyazaki_en_fruits_pickup ( $atts ) {
 	return ob_get_clean();
 }
 add_shortcode( 'miyazaki_en_fruits_pickup', 'miyazaki_en_fruits_pickup' );
+
+//////////////////////////////////////////////////////
+// Shortcode Swieets Pricekist
+function miyazaki_en_swieets_pricekist ( $atts ) {
+}
+add_shortcode( 'miyazaki_en_swieets_pricekist', 'miyazaki_en_swieets_pricekist' );
 
 //////////////////////////////////////////////////////
 // Display the Featured Image at vegetable page
@@ -246,11 +267,11 @@ function miyazaki_en_get_type_label( $value, $anchor = TRUE ) {
 	if( array_key_exists( 'choices' , $fields ) ){
 		$label .= '<span>';
 		if( $anchor ){
-			$label .= '<a href="' .$url .'type/' .$value .'">';
+//			$label .= '<a href="' .$url .'type/' .$value .'">';
 		}
 		$label .= $fields[ 'choices' ][ $value ];
 		if( $anchor ){
-			$label .= '</a>';
+//			$label .= '</a>';
 		}
 		$label .= '</span>';
 	}
@@ -398,8 +419,8 @@ add_filter( 'body_class', 'miyazaki_en_body_class' );
 // login logo
 function miyazaki_en_login_head() {
 
-//	$url = get_stylesheet_directory_uri() .'/images/login.png';
-//	echo '<style type="text/css">.login h1 a { background-image:url(' .$url .'); height: 84px; width: 320px; background-size: 100% 100%;}</style>';
+	$url = get_stylesheet_directory_uri() .'/images/login.png';
+	echo '<style type="text/css">.login h1 a { background-image:url(' .$url .'); height: 84px; width: 320px; background-size: 100% 100%;}</style>';
 }
 add_action('login_head', 'miyazaki_en_login_head');
 

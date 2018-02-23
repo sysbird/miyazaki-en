@@ -38,8 +38,8 @@
 
 <?php endwhile; ?>
 
-	<?php $page = get_page_by_path( 'fruit' ); ?>
-	<div class="more"><a href="<?php echo get_permalink( $page->ID ); ?>"><?php echo esc_html( get_post_type_object( 'fruits')->label ); ?>をもっと見る</a></div>
+	<?php $page = get_page_by_path( 'fruit' );  ?>
+	<div class="more"><a href="<?php echo get_permalink( $page->ID ); ?>"><?php echo $page->post_title; ?>をもっと見る</a></div>
 
 	</div>
 </div>

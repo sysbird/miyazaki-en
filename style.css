@@ -599,3 +599,25 @@ img.alignleft, img.alignright, img.aligncenter {
 	}
 }
 
+@media screen and (max-width: 930px) {
+	.home #content #blog ul.article {
+		margin: -10px 0 1.6em 0;
+		overflow: hidden;
+		*zoom: 1;
+	}
+
+	.home #content #blog ul.article .hentry {
+		width: 32%;
+		margin: 10px 4px 0;
+		float: left;
+	}
+}
+
+@media screen and (max-width: 660px) {
+
+	.home #content #blog ul.article .hentry {
+		width: 48%;
+		margin: 10px 1% 0;
+	}
+}
+

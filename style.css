@@ -139,6 +139,7 @@ This theme, like WordPress, is licensed under the GPL.
 
 #footer #widget-area {
 	background: #f9f7f3;
+	background:  #EEE5DB
 }
 
 #footer #widget-area .widget,
@@ -611,6 +612,14 @@ img.alignleft, img.alignright, img.aligncenter {
 		margin: 10px 4px 0;
 		float: left;
 	}
+
+	.home #content #blog ul.article .hentry .entry-header {
+		padding: 5px;
+	}
+
+	.home #content #blog ul.article .hentry .entry-header .entry-title {
+		font-size: 1.4em;
+	}
 }
 
 @media screen and (max-width: 660px) {
@@ -619,5 +628,6 @@ img.alignleft, img.alignright, img.aligncenter {
 		width: 48%;
 		margin: 10px 1% 0;
 	}
+
 }
 

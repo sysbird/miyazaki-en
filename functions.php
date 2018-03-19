@@ -432,6 +432,7 @@ remove_action( 'wp_print_styles', 'print_emoji_styles', 10 );
 //////////////////////////////////////////////////////
 // set favicon
 function miyazaki_en_favicon() {
-//	echo '<link rel="shortcut icon" type="image/x-icon" href="' .get_stylesheet_directory_uri(). '/images/favicon.ico" />'. "\n";
+	echo '<link rel="shortcut icon" type="image/x-icon" href="' .get_stylesheet_directory_uri() .'/images/favicon.ico" />'. "\n";
+	echo '<link rel="apple-touch-icon" href="' .get_stylesheet_directory_uri() .'/images/webclipicon.png" />'. "\n";
 }
 add_action( 'wp_head', 'miyazaki_en_favicon' );

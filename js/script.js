@@ -1,5 +1,6 @@
 jQuery(function() {
 
+
 	// Google Maps
 	if( jQuery( '#map-canvas').length ){
 		google.maps.event.addDomListener(window, 'load',  myz_google_maps);
@@ -7,28 +8,8 @@ jQuery(function() {
 
 	jQuery( window ).load(function() {
 		jQuery( ".home .tile .type-fruits" ).tile();
-
 		jQuery( ".fruit .tile .type-fruits" ).tile();
-
-		jQuery( '.tile.masonry ' ).masonry({
-			itemSelector: '.type-fruits',
-			isAnimated: true
-		});
-
-
-		if( jQuery( '#small-menu' ).is( ':visible' ) ){
-			jQuery('#footer').css( 'auto' );
-		}
-		else{
-			// for facebook
-			jQuery( '#widget-area .container' ).masonry( 'destroy' );
-			var widgetArea = jQuery( '#widget-area' ).height();
-			var footerHeight = jQuery( '#footer .site-title' ).innerHeight();
-			var height = parseInt( widgetArea ) + parseInt( footerHeight );
-			jQuery('#content').css('padding-bottom', height + 'px' );
-			jQuery('#footer').css('height', height + 'px' );
-		}
-
+		jQuery( '#widget-area .container' ).masonry( 'destroy' );
 	} );
 });
 

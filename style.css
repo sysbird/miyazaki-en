@@ -17,7 +17,7 @@ This theme, like WordPress, is licensed under the GPL.
 */
 
 #header #branding {
-	padding:  3px 0;
+	padding: 3px 0;
 }
 
 #header #branding #site-title {
@@ -99,8 +99,7 @@ This theme, like WordPress, is licensed under the GPL.
 	z-index: 1;
 }
 
-.home #content section:nth-child(2n +1) {
-	background: #F8F8F6;
+.home #content section:nth-child(odd) {
 	background: #f9f7f3;
 }
 
@@ -154,7 +153,6 @@ This theme, like WordPress, is licensed under the GPL.
 
 #footer #widget-area {
 	background: #f9f7f3;
-	background:  #EEE5DB
 }
 
 #footer #widget-area .widget,
@@ -490,14 +488,6 @@ img.alignleft, img.alignright, img.aligncenter {
 
 	#menu-wrapper .menu ul#menu-primary-items li.home >a:before {
 		content: "\f015";
-	}
-
-	#menu-wrapper .menu ul#menu-primary-items li.about >a:before {
-		content: "\f06c";
-	}
-
-	#menu-wrapper .menu ul#menu-primary-items li.facebook >a:before {
-		content: "\f082";
 	}
 
 	.home #wall .widget-area-header, .blog #wall .widget-area-header {

@@ -8,7 +8,8 @@
 	<?php if ( have_posts() ) : ?>
 		<section id="blog">
 			<div class="container">
-				<h2><a href="<?php echo esc_url( home_url( '/' ) ); ?>news/">お知らせ</a></h2>
+				<?php $obj_news = get_post_type_object( 'news' ) ?>
+				<h2><a href="<?php echo esc_url( home_url( '/' ) ); ?>news/"><?php echo $obj_news->labels->singular_name; ?></a></h2>
 
 				<ul class="article">
 				<?php while ( have_posts() ) : the_post(); ?>

@@ -28,7 +28,7 @@
 				'posts_per_page'	=> $posts_per_page,
 				'offset'			=> $offset,
 				'post_type'		=> 'fruits',
-				'post_status'		=> 'publish'
+				'post_status'		=> 'publish',
 			);
 
 			$the_query = new WP_Query($args);

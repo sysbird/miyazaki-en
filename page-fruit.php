@@ -29,6 +29,7 @@
 				'offset'			=> $offset,
 				'post_type'		=> 'fruits',
 				'post_status'		=> 'publish',
+				'orderby'		=> 'rand',
 				'posts_per_page'	=> -1,
 			);
 

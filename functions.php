@@ -241,12 +241,12 @@ add_shortcode( 'miyazaki_en_fruits_pickup', 'miyazaki_en_fruits_pickup' );
 
 //////////////////////////////////////////////////////
 // Shortcode Swieets Pricekist
-function miyazaki_en_swieets_pricekist ( $atts ) {
+function miyazaki_en_swieets_pricelist ( $atts ) {
 }
-add_shortcode( 'miyazaki_en_swieets_pricekist', 'miyazaki_en_swieets_pricekist' );
+add_shortcode( 'miyazaki_en_swieets_pricelist', 'miyazaki_en_swieets_pricelist' );
 
 //////////////////////////////////////////////////////
-// Display the Featured Image at vegetable page
+// Display the Featured Image at fruit page
 function miyazaki_en_post_image_html( $html, $post_id, $post_image_id ) {
 
 	if( !( false === strpos( $html, 'anchor' ) ) ){

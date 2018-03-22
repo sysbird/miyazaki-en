@@ -7,9 +7,8 @@
 		<article class="hentry">
 			<header class="content-header">
 				<h1 class="content-title">
-				<?php $cat_news = get_category_by_slug( 'news' ) ?>
-
-				<?php printf(__( 'Yearly Archives: %s', 'birdfield' ),esc_html( get_post_type_object( 'news')->label ) ); ?>
+					<?php $obj_news = get_post_type_object( 'news' ) ?>
+					<?php echo $obj_news->labels->singular_name; ?>
 				</h1>
 			</header>
 

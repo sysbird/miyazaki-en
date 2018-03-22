@@ -420,7 +420,7 @@ add_filter( 'body_class', 'miyazaki_en_body_class' );
 function miyazaki_en_login_head() {
 
 	$url = get_stylesheet_directory_uri() .'/images/login.png';
-	echo '<style type="text/css">.login h1 a { background-image:url(' .$url .'); height: 84px; width: 320px; background-size: 100% 100%;}</style>';
+	echo '<style type="text/css">.login h1 a { background-image:url(' .$url .'); height: 117px; width: 151px; background-size: 100% 100%;}</style>';
 }
 add_action('login_head', 'miyazaki_en_login_head');
 

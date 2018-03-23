@@ -180,7 +180,8 @@ function miyazaki_en_fruits_calendar ( $atts ) {
 		$html .= '<td class="title"><a href="' .get_permalink() .'">' .get_the_title() .'</a></td>';
 		$html .= '<td class="data">';
 		for( $i = 1; $i <= 12; $i++ ){
-			if( in_array( $i, $selected) ) {
+
+			if( $selected && in_array( $i, $selected ) ) {
 				$html .= '<span class="best">' .$i .'</span>';
 			}
 			else{

@@ -69,10 +69,6 @@ function miyazaki_en_init() {
 		);
 
 	register_post_type( 'sweets', $args );
-
-	// add permalink rule for fruits
-	add_rewrite_rule('fruits/type/([a-zA-Z_]+)/?$' ,'index.php?post_type=fruits&type=$matches[1]', 'top');
-	add_rewrite_rule('fruits/season/([a-zA-Z_]+)/?$' ,'index.php?post_type=fruits&season=$matches[1]', 'top');
 }
 add_action( 'init', 'miyazaki_en_init', 0 );
 
@@ -88,30 +84,8 @@ function miyazaki_en_query( $query ) {
 
 	if ($query->is_main_query() && is_post_type_archive('fruits')) {
 		// fruits
-		$type = get_query_var('type') ;
-		if( !empty( $type )){
-			// fruits type
-			$query->set('meta_query',
-				array(
-					array(
-					'key' => 'type',
-					'value' => $type,
-					'compare' => 'LIKE' )));
-			$query->set( 'posts_per_page', -1 );
-		}
-		else {
-			$season = get_query_var('season') ;
-			if( !empty( $season )){
-				// fruits season
-				$query->set('meta_query',
-					array(
-						array(
-						'key' => 'season',
-						'value' => $season,
-						'compare' => 'LIKE' )));
-				$query->set( 'posts_per_page', -1 );
-			}
-		}
+		$query->set( 'posts_per_page', -1 );
+		$query->set( 'orderby', 'rand' );
 	}
 }
 add_action( 'pre_get_posts', 'miyazaki_en_query' );

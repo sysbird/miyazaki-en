@@ -7,8 +7,7 @@ jQuery(function() {
 	}
 
 	jQuery( window ).load(function() {
-		jQuery( ".home .tile .type-fruits" ).tile();
-		jQuery( ".fruit .tile .type-fruits" ).tile();
+		jQuery( ".tile .type-fruits" ).tile();
 		jQuery( '#widget-area .container' ).masonry( 'destroy' );
 	} );
 });

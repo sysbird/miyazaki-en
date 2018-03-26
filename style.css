@@ -57,7 +57,7 @@ This theme, like WordPress, is licensed under the GPL.
 	display: none;
 }
 
-#header:not(.mini)  #menu-wrapper .menu #small-menu:before {
+#header:not(.mini) #menu-wrapper .menu #small-menu:before {
 	padding-top: 5px;
 }
 
@@ -134,11 +134,6 @@ This theme, like WordPress, is licensed under the GPL.
 	padding-top:  0;
 }
 
-#content #blog ul.article .hentry .entry-header,
-#content  #blog ul.article .hentry .entry-header .entry-title {
-	color: #6f675d !important;
-}
-
 .home #content #blog ul.article, .blog #content #blog ul.article {
 	margin-top: -10px;
 }
@@ -167,10 +162,6 @@ This theme, like WordPress, is licensed under the GPL.
 
 #footer #searchform #s {
 	border: solid 1px #6f675d;
-}
-
-#footer #widget-area .widget h3 {
-	border-bottom: dotted 1px #6f675d1;
 }
 
 #footer #widget-area .right  {
@@ -290,15 +281,13 @@ This theme, like WordPress, is licensed under the GPL.
 	padding: 5px;
 	margin: 0; }
 
-#content .tile  .type-fruits .entry-header .entry-title {
-	font-size: 1.4rem;
-	color: #ea7b19;
-	margin-bottom: 0; }
+#content .tile .type-fruits .entry-header .entry-title {
+	font-size: 1.4rem; }
 
 #content .type-fruits p.catchcopy {
 	display: inline;
 	font-size: 0.9em;
-	color: #6f675d;
+	color: #72ae2d;
 	margin-bottom: 0; }
 
 .single #content .type-fruits p.catchcopy {
@@ -402,32 +391,20 @@ This theme, like WordPress, is licensed under the GPL.
 	display: none;
 }
 
-/* fruits_card */
-.fruits_card {
-	width: 90%;
-	max-width: 500px;
-	margin: 0 auto;
-	background: #FFF;
-	position: relative;
-	padding: 0.8em;
-	border-radius: 4px;
-}
-
-.fruits_card img {
-	max-width: 100%;
-}
-
 #content .hentry .entry-header .entry-title,
 .home #content h2 {
-	font-size: 2rem; }
+	font-size: 2rem;
+}
 
 #content h2 {
-	font-size: 1.8rem; }
+	font-size: 1.8rem;
+}
 
-.page #content .hentry .entry-header .entry-title,
+.page #content .hentry:not(.type-fruits) >.entry-header .entry-title,
+.archive .content-title,
 #content h2 a,
-#content h3 a {
-	color: #72ae2d;
+#footer #widget-area .widget h3 {
+	color: #72ae2d !important;
 }
 
 .page.chezrose #content .hentry .entry-header .entry-title,
@@ -438,7 +415,6 @@ This theme, like WordPress, is licensed under the GPL.
 }
 
 .home #content section.chezrose {
-	background:  #fff0e8;
 	background: #f6f4ed;
 }
 
@@ -447,9 +423,12 @@ This theme, like WordPress, is licensed under the GPL.
 	max-width: 100%;
 }
 
-.page #content h2 {
-	color: #666;
-	border-color: #666;
+#content #blog ul.article .hentry .entry-header,
+#content  #blog ul.article .hentry .entry-header .entry-title,
+#content h2,
+.single-news .entry-title {
+	color: #6f675d !important;
+	border-color: #6f675d !important;
 }
 
 img.alignleft, img.alignright, img.aligncenter {
@@ -644,10 +623,7 @@ img.alignleft, img.alignright, img.aligncenter {
 @media screen and (max-width: 660px) {
 
 	.home #content #blog ul.article .hentry {
-/*		width: 48%;
-		margin: 10px 1% 0; */
 		width: 100%;
 	}
-
 }
 

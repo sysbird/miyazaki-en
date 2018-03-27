@@ -356,6 +356,21 @@ function miyazaki_en_get_catchcopy() {
 	return NULL;
 }
 
+//////////////////////////////////////////////////////
+// bread crumb
+function miyazaki_en_content_header( $arg ){
+
+	$html = '';
+	if( !is_home()){
+		if ( class_exists( 'WP_SiteManager_bread_crumb' ) ) {
+			$html .= '<div class="bread_crumb_wrapper">';
+			$html .= WP_SiteManager_bread_crumb::bread_crumb( array( 'echo'=>'false', 'home_label' => 'ホーム', 'elm_class' => 'bread_crumb container' ));
+			$html .= '</div>';
+		}
+	}
+	return $html;
+}
+add_action( 'birdfield_content_header', 'miyazaki_en_content_header' );
 
 //////////////////////////////////////////////////////
 // show eyecarch on dashboard

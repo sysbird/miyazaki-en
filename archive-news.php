@@ -2,6 +2,8 @@
 
 <div class="blog">
 <div id="content">
+	<?php birdfield_content_header(); ?>
+
 	<div class="container" id="blog">
 
 		<article class="hentry">

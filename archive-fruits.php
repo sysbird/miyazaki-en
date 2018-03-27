@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 
 <div id="content">
+	<?php birdfield_pre_content(); ?>
+
 	<div class="container">
 
 		<article class="hentry">

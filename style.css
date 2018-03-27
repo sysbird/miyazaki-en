@@ -16,6 +16,10 @@ Text Domain: miyazaki-en
 This theme, like WordPress, is licensed under the GPL.
 */
 
+body .wrapper {
+  font-family: Verdana,Arial,"メイリオ", Meiryo, "ヒラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
+}
+
 #header #branding {
 	padding: 3px 0;
 }
@@ -407,6 +411,10 @@ This theme, like WordPress, is licensed under the GPL.
 	color: #72ae2d !important;
 }
 
+#footer #widget-area .widget h3 {
+	border-left: none;
+}
+
 .page.chezrose #content .hentry .entry-header .entry-title,
 .page.reserve-chezrose #content .hentry .entry-header .entry-title,
 #content .chezrose h2 a,
@@ -433,6 +441,42 @@ This theme, like WordPress, is licensed under the GPL.
 
 img.alignleft, img.alignright, img.aligncenter {
 	margin-bottom:  1.6em;
+}
+
+/* bread crumb for wp-manager
+-------------------------------------------------------------- */
+#content .bread_crumb_wrapper {
+	background-color: #f9f7f3;
+}
+
+#content ul.bread_crumb {
+	list-style-type: none;
+	color: #999;
+	font-size: 0.9rem;
+	margin: 0 auto;
+	padding: 0.4em 0;
+}
+
+#content .bread_crumb li {
+	display: inline-block;
+	line-height: 1;
+}
+
+#content ul.bread_crumb li a {
+	color: #6f675d;
+}
+
+#content ul.bread_crumb li a:after {
+	content: "\f105";
+	display: inline-block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	padding-left: 0.4em;
+	padding-right: 0.2em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 @media screen and (min-width: 480px) {

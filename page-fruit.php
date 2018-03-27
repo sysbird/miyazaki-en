@@ -3,6 +3,8 @@
 ?>
 
 <div id="content">
+	<?php birdfield_content_header(); ?>
+
 	<div class="container">
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>

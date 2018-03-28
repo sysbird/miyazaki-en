@@ -1,3 +1,6 @@
+		<?php birdfield_content_footer(); ?>
+	</div>
+
 	<footer id="footer">
 		<section id="widget-area">
 			<div class="container">

@@ -28,10 +28,10 @@ function miyazaki_en_init() {
 		);
 	$args = array(
 		'labels'			=> $labels,
-		'supports'		=> array( 'title','editor', 'thumbnail' ),
+		'supports'			=> array( 'title','editor', 'thumbnail' ),
 		'public'			=> true,	// 公開するかどうが
-		'show_ui'		=> true,	// メニューに表示するかどうか
-		'menu_position'	=> 5,		// メニューの表示位置
+		'show_ui'			=> true,	// メニューに表示するかどうか
+		'menu_position'		=> 5,		// メニューの表示位置
 		'has_archive'		=> true,	// アーカイブページの作成
 		);
 	register_post_type( 'news', $args );
@@ -44,10 +44,10 @@ function miyazaki_en_init() {
 
 	$args = array(
 		'labels'			=> $labels,
-		'supports'		=> array( 'title','editor', 'thumbnail', 'custom-fields' ),
+		'supports'			=> array( 'title','editor', 'thumbnail', 'custom-fields' ),
 		'public'			=> true,	// 公開するかどうが
-		'show_ui'		=> true,	// メニューに表示するかどうか
-		'menu_position'	=> 5,		// メニューの表示位置
+		'show_ui'			=> true,	// メニューに表示するかどうか
+		'menu_position'		=> 5,		// メニューの表示位置
 		'has_archive'		=> true,	// アーカイブページの作成
 		);
 
@@ -61,10 +61,10 @@ function miyazaki_en_init() {
 
 	$args = array(
 		'labels'			=> $labels,
-		'supports'		=> array( 'title','editor', 'thumbnail', 'custom-fields' ),
+		'supports'			=> array( 'title','editor', 'thumbnail', 'custom-fields' ),
 		'public'			=> true,	// 公開するかどうが
-		'show_ui'		=> true,	// メニューに表示するかどうか
-		'menu_position'	=> 5,		// メニューの表示位置
+		'show_ui'			=> true,	// メニューに表示するかどうか
+		'menu_position'		=> 5,		// メニューの表示位置
 		'has_archive'		=> true,	// アーカイブページの作成
 		);
 
@@ -115,7 +115,7 @@ function miyazaki_en_map ( $atts ) {
 add_shortcode( 'miyazaki_en_map', 'miyazaki_en_map' );
 
 //////////////////////////////////////////////////////
-// Shortcode Vegitables Calendar
+// Shortcode Fruits Calendar
 function miyazaki_en_fruits_calendar ( $atts ) {
 
 	extract( shortcode_atts( array(
@@ -128,8 +128,10 @@ function miyazaki_en_fruits_calendar ( $atts ) {
 
 	$args = array(
 		'posts_per_page' => -1,
-		'post_type' => 'fruits',
-		'post_status' => 'publish',
+		'post_type'	=> 'fruits',
+		'post_status'	=> 'publish',
+		'meta_key'		=> 'type',
+		'orderby'		=> 'meta_value',
 	);
 
 	$the_query = new WP_Query($args);

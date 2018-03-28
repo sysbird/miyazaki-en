@@ -2,10 +2,7 @@
 	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 ?>
 
-<div id="content">
-	<?php birdfield_content_header(); ?>
-
-	<div class="container">
+<div class="container">
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
@@ -23,16 +20,11 @@
 			<?php endif; ?>
 		<?php endif; ?>
 
-		<?php $posts_per_page = get_option( 'posts_per_page' );
-			$offset = $posts_per_page * ( $paged -1 );
-
-			$args = array(
-				'posts_per_page'	=> $posts_per_page,
-				'offset'			=> $offset,
+		<?php $args = array(
 				'post_type'		=> 'fruits',
-				'post_status'		=> 'publish',
+				'post_status'	=> 'publish',
 				'orderby'		=> 'rand',
-				'posts_per_page'	=> -1,
+				'posts_per_page'=> -1,
 			);
 
 			$the_query = new WP_Query($args);
@@ -53,7 +45,6 @@
 
 <?php endwhile; ?>
 
-	</div>
 </div>
 
 <?php get_footer(); ?>

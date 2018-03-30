@@ -1,24 +1,30 @@
 <?php get_header(); ?>
 
-<div class="container">
+<div id="content">
+	<?php birdfield_content_header(); ?>
 
-	<article class="hentry">
-		<header class="content-header">
-			<h1 class="content-title">
-			<?php echo esc_html( get_post_type_object( 'fruits')->label ); ?>
-			</h1>
-		</header>
+	<div class="container">
 
-		<?php if ( have_posts() ) : ?>
-			<div class="tile">
+		<article class="hentry">
+			<header class="content-header">
+				<h1 class="content-title">
+				<?php echo esc_html( get_post_type_object( 'fruits')->label ); ?>
+				</h1>
+			</header>
 
-				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content', 'fruits' ); ?>
-				<?php endwhile; ?>
+			<?php if ( have_posts() ) : ?>
+				<div class="tile">
 
-			</div>
-		<?php endif; ?>
-	</article>
+					<?php while ( have_posts() ) : the_post(); ?>
+						<?php get_template_part( 'content', 'fruits' ); ?>
+					<?php endwhile; ?>
+
+				</div>
+			<?php endif; ?>
+		</article>
+	</div>
+
+	<?php birdfield_content_footer(); ?>
 </div>
 
 <?php get_footer(); ?>

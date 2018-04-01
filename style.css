@@ -122,6 +122,18 @@ body .wrapper {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+#content a.miyazaki_en_link:before {
+	content: "\f0a9";
+	display: inline-block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	padding-right: 0.4em;
+}
+
 /* footer
 --------------------------------------------- */
 #footer .site-title {
@@ -337,6 +349,18 @@ body .wrapper {
 	border-radius: 50%;
 }
 
+/* title sweets
+-------------------------------------------------------------- */
+#content .type-sweets p.price {
+	font-size: 0.9em;
+	color: #6f675d;
+	margin-bottom: 0;
+	border-bottom: dotted 1px #E6E6E6;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+}
+
+
 /* title text
 -------------------------------------------------------------- */
 #content .hentry .entry-header .entry-title,
@@ -359,8 +383,9 @@ body .wrapper {
 	border-left: none;
 }
 
-#content #blog ul.article .hentry .entry-header,
-#content  #blog ul.article .hentry .entry-header .entry-title,
+#content ul.article .hentry .entry-header,
+#content ul.article .hentry .entry-header .entry-title,
+.category-news .entry-title,
 #content h2,
 .single-news .entry-title {
 	color: #6f675d !important;
@@ -436,12 +461,11 @@ img.alignleft, img.alignright, img.aligncenter {
 /* contact form
 --------------------------------------------- */
 .wpcf7-form {
-	padding: 0.8em;
 	max-width: 500px;
 	width: 100%;
 }
 
-.wpcf7-form input {
+.wpcf7-form input:not([type=checkbox]) {
 	max-width: 500px;
 	width: 100%;
 }

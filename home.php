@@ -7,18 +7,18 @@
 		<?php birdfield_headerslider(); ?>
 	<?php endif; ?>
 
-	<?php if ( have_posts() ) : ?>
+	<?php if ( have_posts()) : ?>
 		<section id="blog">
 			<div class="container">
-				<?php $obj_news = get_post_type_object( 'news' ) ?>
-				<h2><a href="<?php echo esc_url( home_url( '/' ) ); ?>news/"><?php echo $obj_news->labels->singular_name; ?></a></h2>
+				<?php $category_id = get_cat_ID( 'お知らせ' ); ?>
+				<h2><a href="<?php echo get_category_link( $category_id ); ?>">お知らせ</a></h2>
 
 				<ul class="article">
-				<?php while ( have_posts() ) : the_post(); ?>
+				<?php while ( have_posts()) : the_post(); ?>
 					<?php get_template_part( 'content', 'home' ); ?>
 				<?php endwhile; ?>
 				</ul>
-				<div class="more"><a href="<?php echo esc_url( home_url( '/' ) ); ?>news/">もっと見る</a></div>
+				<div class="more"><a href="<?php echo get_category_link( $category_id ); ?>" >もっと見る</a></div>
 			</div>
 		</section>
 	<?php endif; ?>
@@ -44,7 +44,7 @@
 
 			<?php
 				if( !( false === strpos( $post->post_name, 'fruit' ) ) ){
-					echo do_shortcode('[miyazaki_en_fruits_pickup]');
+					echo do_shortcode('[miyazaki_en_fruits_list]');
 				}
 				else{
 					the_content('');

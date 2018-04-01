@@ -21,8 +21,9 @@ function miyazaki_en_init() {
 
  	// add tags at page
 	register_taxonomy_for_object_type('post_tag', 'page');
+
 	// add post type news
-	$labels = array(
+/*	$labels = array(
 		'name'		=> 'お知らせ',
 		'all_items'	=> 'お知らせの一覧',
 		);
@@ -35,7 +36,7 @@ function miyazaki_en_init() {
 		'has_archive'		=> true,	// アーカイブページの作成
 		);
 	register_post_type( 'news', $args );
-
+*/
 	// add post type fruits
 	$labels = array(
 		'name'		=> 'くだもの・野菜',
@@ -77,8 +78,8 @@ add_action( 'init', 'miyazaki_en_init', 0 );
 function miyazaki_en_query( $query ) {
 
  	if ( $query->is_home() && $query->is_main_query() ) {
- 		// toppage news
-		$query->set( 'post_type', 'news' );
+		// toppage news
+		$query->set( 'cat', get_cat_ID( 'お知らせ' ));
 		$query->set( 'posts_per_page', 3 );
 	}
 
@@ -113,6 +114,23 @@ function miyazaki_en_map ( $atts ) {
 	return $output;
 }
 add_shortcode( 'miyazaki_en_map', 'miyazaki_en_map' );
+
+//////////////////////////////////////////////////////
+// Shortcode Fruits Calendar Link
+function miyazaki_en_fruits_calendar_link ( $atts ) {
+
+	$html = '';
+	if ( wp_is_mobile() ){
+		$page = get_page_by_path( 'calendar' );
+		$html = '<p><a href="' .get_the_permalink( $page->ID) .'">&raquo;' .$page->post_title .'</a></p>';
+	}
+	else{
+		$html = do_shortcode( '[miyazaki_en_fruits_calendar]' );
+	}
+
+	return $html;
+}
+add_shortcode( 'miyazaki_en_fruits_calendar_link', 'miyazaki_en_fruits_calendar_link' );
 
 //////////////////////////////////////////////////////
 // Shortcode Fruits Calendar
@@ -173,7 +191,6 @@ function miyazaki_en_fruits_calendar ( $atts ) {
 		wp_reset_postdata();
 	endif;
 
-
 	if( !empty( $html )){
 		$html .= $html_table_footer;
 	}
@@ -187,17 +204,24 @@ function miyazaki_en_fruits_calendar ( $atts ) {
 add_shortcode( 'miyazaki_en_fruits_calendar', 'miyazaki_en_fruits_calendar' );
 
 //////////////////////////////////////////////////////
-// Shortcode Vegitables Pickup at home
-function miyazaki_en_fruits_pickup ( $atts ) {
+// Shortcode Fruit List
+function miyazaki_en_fruits_list ( $atts ) {
+
 	ob_start();
 
 	$args = array(
-		'posts_per_page' => 6,
 		'post_type' => 'fruits',
 		'post_status' => 'publish',
-		'meta_key' => '_thumbnail_id',
-		'orderby'	 => 'rand',
+		'orderby'	=> 'rand',
 	);
+
+	if( is_home()){
+		$args[ 'posts_per_page' ] = 6;
+		$args[ 'meta_key' ] = '_thumbnail_id';
+	}
+	else{
+		$args[ 'posts_per_page' ] = -1;
+	}
 
 	$the_query = new WP_Query($args);
 	if ( $the_query->have_posts() ) :
@@ -214,13 +238,63 @@ function miyazaki_en_fruits_pickup ( $atts ) {
 
 	return ob_get_clean();
 }
-add_shortcode( 'miyazaki_en_fruits_pickup', 'miyazaki_en_fruits_pickup' );
+add_shortcode( 'miyazaki_en_fruits_list', 'miyazaki_en_fruits_list' );
 
 //////////////////////////////////////////////////////
-// Shortcode Swieets Pricekist
-function miyazaki_en_swieets_pricelist ( $atts ) {
+// Shortcode Swieets List
+function miyazaki_en_sweets_list ( $atts ) {
+
+	if( is_home()){
+		return '';
+	}
+
+	ob_start();
+
+	$args = array(
+		'post_type' => 'sweets',
+		'post_status' => 'publish',
+		'orderby'	=> 'rand',
+		'posts_per_page' => -1,
+	);
+
+	$the_query = new WP_Query($args);
+	if ( $the_query->have_posts() ) :
+		?> <div class="tile"><?php
+
+		while ( $the_query->have_posts() ) : $the_query->the_post();
+			get_template_part( 'content', 'sweets' );
+		endwhile;
+
+		?></div><?php
+
+		wp_reset_postdata();
+	endif;
+
+	return ob_get_clean();
 }
-add_shortcode( 'miyazaki_en_swieets_pricelist', 'miyazaki_en_swieets_pricelist' );
+add_shortcode( 'miyazaki_en_sweets_list', 'miyazaki_en_sweets_list' );
+
+//////////////////////////////////////////////////////
+// Shortcode link button
+function miyazaki_en_link ( $atts ) {
+
+	$atts = shortcode_atts( array( 'title' => '', 'url' => '#' ), $atts );
+	$title = $atts['title'];
+	$url = $atts['url'];
+
+	if( !strcmp( '#' ,$url )){
+		return '';
+	}
+
+	if( '' === $title ){
+		$title = $url;
+	}
+
+	$html = '<a href="' .esc_html( $url ) .'" class="miyazaki_en_link">' .$title .'</a>';
+
+	return $html;
+}
+add_shortcode( 'miyazaki_en_link', 'miyazaki_en_link' );
 
 //////////////////////////////////////////////////////
 // Display the Featured Image at fruit page
@@ -314,7 +388,7 @@ function miyazaki_en_get_fruits( $params ) {
 	$content = '';
 
 	$args = array(
-		'p'					=> $params['id'],
+		'p'			=> $params['id'],
 		'posts_per_page'	=> 1,
 		'post_type'			=> 'fruits',
 		'post_status'		=> 'publish',
@@ -353,6 +427,18 @@ function miyazaki_en_get_catchcopy() {
 	$catchcopy = get_field( 'catchcopy' );
 	if( $catchcopy ){
 		return '<p class="catchcopy">' .$catchcopy .'</p>';
+	}
+
+	return NULL;
+}
+
+/////////////////////////////////////////////////////
+// show sweets price
+function miyazaki_en_get_sweets_price() {
+
+	$price = get_field( 'price' );
+	if( $price ){
+		return '<p class="price">' .$price .' 円</p>';
 	}
 
 	return NULL;
@@ -428,3 +514,12 @@ function miyazaki_en_favicon() {
 	echo '<link rel="apple-touch-icon" href="' .get_stylesheet_directory_uri() .'/images/webclip.png" />'. "\n";
 }
 add_action( 'wp_head', 'miyazaki_en_favicon' );
+
+//////////////////////////////////////////////////////
+// set author
+function myplugin_add_custom_box() {
+	if( function_exists( 'add_meta_box' )) {
+		add_meta_box( 'myplugin_sectionid', __( '作成者', 'myplugin_textdomain' ), 'post_author_meta_box', 'news', 'advanced' );
+	}
+}
+add_action( 'admin_menu', 'myplugin_add_custom_box' );

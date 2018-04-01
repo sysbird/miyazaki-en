@@ -6,10 +6,7 @@
 	<div class="container">
 
 		<header class="content-header">
-			<h1 class="content-title">
-				<?php $obj_news = get_post_type_object( 'news' ) ?>
-				<?php echo $obj_news->labels->singular_name; ?>
-			</h1>
+			<h1 class="content-title">お知らせ</h1>
 		</header>
 
 		<?php if ( have_posts() ) : ?>

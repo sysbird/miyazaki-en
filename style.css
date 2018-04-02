@@ -460,28 +460,117 @@ img.alignleft, img.alignright, img.aligncenter {
 
 /* contact form
 --------------------------------------------- */
-.wpcf7-form {
-	max-width: 500px;
+.wpcf7-form .form {
+	max-width: 650px;
 	width: 100%;
+	border: solid 1px #DDD;
 }
 
-.wpcf7-form input:not([type=checkbox]) {
-	max-width: 500px;
+.wpcf7-form .group {
+	padding: 3%;
+}
+
+.wpcf7-form .group:nth-of-type(2n+1) {
+	background-color: #f9f9f9;
+}
+
+.wpcf7-form input:not([type=checkbox]),
+.wpcf7-form textarea {
 	width: 100%;
 }
 
 .wpcf7-form textarea {
-	width: 100%;
-	font-size: 1.4em;
+	font: inherit;
 }
 
 .wpcf7-form input[type=submit] {
 	max-width: 200px;
-	padding: 0.8em;
+	padding: 0.4em;
 	border-radius:  4px;
 	background-color: #6f675d;
 	color: #FFF;
 	cursor: pointer;
+	font-size: 1.2em;
+	display: block;
+	margin: 0 auto;
+}
+
+.wpcf7-form input[type=submit]:hover {
+	background-color: #847d74;
+}
+
+.wpcf7-form .title,
+.wpcf7-form .label {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 5px;
+	font-size: 1.2em;
+}
+
+.wpcf7-form .required {
+	font-size: 85%;
+	color: #C00;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"],
+input[type="date"],
+input[type="number"],
+.wpcf7-form textarea {
+  width: 100%;
+  border: solid 1px #d2d2d2;
+  border-radius: 4px;
+  padding: 0.4em;
+  margin-top: 1%;
+  font-size: 1.4em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.wpcf7-list-item-label {
+  font-size: 1.1em;
+}
+
+.price .wpcf7-form-control-wrap {
+	display: inline-block;
+	margin-bottom: 2%;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@media screen and (min-width: 660px) {
+	.wpcf7-form input[type=submit],
+	input[type="text"],
+	input[type="email"],
+	input[type="password"],
+	input[type="file"],
+	input[type="date"],
+	input[type="number"],
+	.wpcf7-form textarea,
+	.wpcf7-list-item-label,
+	.wpcf7-form .title,
+	.wpcf7-form .label {
+		font-size: 1em;
+	}
+
+	.wpcf7-form input:not([type=checkbox]) {
+		width: 70%;
+	}
+
+	.wpcf7-form input[type=submit] {
+		margin: 0;
+	}
 }
 
 /* Media queries for responsive design
@@ -532,12 +621,14 @@ img.alignleft, img.alignright, img.aligncenter {
 		display: table-cell;
 	}
 
+
 	#content table.fruits-calendar th.title {
 		border-bottom: 2px solid #e6e6e6;
 	}
 
 	#content table.fruits-calendar td.title {
 		padding-top: 0;
+		width: 22%;
 	}
 
 	#content table.fruits-calendar span {

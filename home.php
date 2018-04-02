@@ -18,7 +18,7 @@
 					<?php get_template_part( 'content', 'home' ); ?>
 				<?php endwhile; ?>
 				</ul>
-				<div class="more"><a href="<?php echo get_category_link( $category_id ); ?>" >もっと見る</a></div>
+				<div class="more"><a href="<?php echo get_category_link( $category_id ); ?>" >「お知らせ」をもっと見る</a></div>
 			</div>
 		</section>
 	<?php endif; ?>
@@ -39,6 +39,7 @@
 			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
 			<?php
+				$more_text = '「' .get_the_title() .'」を詳しく見る';
 				$more_url = get_the_permalink();
 			?>
 
@@ -51,13 +52,7 @@
 				}
 			?>
 
-			<div class="more"><a href="<?php echo $more_url ; ?>">詳しく見る</a></div>
-
-			<?php
-				if( !( false === strpos( $post->post_name, 'access' ) ) ){
-					echo do_shortcode('[miyazaki_en_map]');
-				}
-			?>
+			<div class="more"><a href="<?php echo $more_url; ?>"><?php echo $more_text; ?></a></div>
 
 		</div>
 	</section>

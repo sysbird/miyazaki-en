@@ -1,6 +1,5 @@
 jQuery(function() {
 
-
 	// Google Maps
 	if( jQuery( '#map-canvas').length ){
 		google.maps.event.addDomListener(window, 'load',  myz_google_maps);
@@ -10,6 +9,34 @@ jQuery(function() {
 		jQuery( ".tile .hentry" ).tile();
 		jQuery( '#widget-area .container' ).masonry( 'destroy' );
 	} );
+
+	// form
+	jQuery( '#zip' ).keyup( function( event ){
+		AjaxZip3.zip2addr( this,'','pref','addr' );
+	})
+
+	// form confirm
+	document.addEventListener( 'wpcf7submit', function( event ) {
+		switch ( event.detail.status ) {
+			case 'wpcf7c_confirmed':
+				jQuery( 'input[type=checkbox].wpcf7c-conf:not(:checked)' ).parent( 'label' ).parent( '.wpcf7-list-item' ).css( {'display': 'none'} );
+				jQuery( '.wpcf7-form .message.confirm' ).css( {'display': 'block'} );
+			break;
+
+			case 'mail_sent':
+				jQuery( '.wpcf7-form .message.confirm' ).css( {'display': 'none'} );
+				break;
+		}
+	}, false );
+
+	// form confirm back
+	jQuery('.wpcf7c-btn-back').on("click", function(){
+			jQuery( 'input[type=checkbox]:not(:checked)' ).parent( 'label' ).parent( '.wpcf7-list-item' ).css( {'display': 'inline-block'} );
+			jQuery( '.wpcf7-form .message.confirm' ).css( {'display': 'none'} );
+		return false;
+	});
+
+
 });
 
 ////////////////////////////////////////

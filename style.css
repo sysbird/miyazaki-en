@@ -484,7 +484,8 @@ img.alignleft, img.alignright, img.aligncenter {
 	font: inherit;
 }
 
-.wpcf7-form input[type=submit] {
+.wpcf7-form input[type=submit],
+.wpcf7-form input[type=button] {
 	max-width: 200px;
 	padding: 0.4em;
 	border-radius: 4px;
@@ -495,6 +496,12 @@ img.alignleft, img.alignright, img.aligncenter {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+}
+
+.wpcf7-form input[type=button].wpcf7c-btn-back {
+	background-color: transparent;
+	border-color: #6f675d;
+	color: #6f675d;
 }
 
 .wpcf7-form input[type=submit]:hover {
@@ -533,6 +540,25 @@ img.alignleft, img.alignright, img.aligncenter {
   appearance: none;
 }
 
+.wpcf7-form input.wpcf7c-conf,
+.wpcf7-form textarea.wpcf7c-conf {
+	background: #F5F5F5;
+}
+
+div.wpcf7-response-output,
+.wpcf7-form .message.confirm {
+	font-size: 85%;
+	color: #cf365a;
+	margin: 0 0 3% 0;
+	padding: 0;
+	display: none;
+	border: none;
+}
+
+.wpcf7-form p {
+  margin: 0 !important;
+}
+
 .price .wpcf7-form-control-wrap {
 	display: inline-block;
 	margin-bottom: 1em;
@@ -556,6 +582,11 @@ img.alignleft, img.alignright, img.aligncenter {
 	width: 3em;
 }
 
+.wpcf7-form .zip input[type="text"],
+.wpcf7-form .pref input[type="text"] {
+	width: 50%;
+}
+
 .wpcf7-list-item {
 	margin-left: 0 !important;
 }
@@ -566,9 +597,10 @@ span.wpcf7-not-valid-tip {
 }
 
 .wpcf7-form input[type="number"]::-webkit-outer-spin-button,
-.wpcf7-form input[type="number"]::-webkit-inner-spin-button {
+.wpcf7-form input[type="number"]::-webkit-inner-spin-button,
+.wpcf7-form p {
   -webkit-appearance: none;
-  margin: 0;
+  margin: 0;;
 }
 
 .wpcf7-form input[type="number"] {
@@ -577,6 +609,7 @@ span.wpcf7-not-valid-tip {
 
 @media screen and (min-width: 660px) {
 	.wpcf7-form input[type=submit],
+	.wpcf7-form input[type=button],
 	.wpcf7-form input[type="text"],
 	.wpcf7-form input[type="email"],
 	.wpcf7-form input[type="password"],

@@ -1,5 +1,6 @@
 
 お問い合わせ
+Contact Form 7 add confirm
 ------------------------------
 <div class="form">
 <div class="group">
@@ -8,11 +9,39 @@
 <div class="group">
   <label><span class="title">メールアドレス <span class="required">※必須</span></span>	[email* your-email akismet:author_email ]</label>
 </div>
-<div class="group">
-  <label><span class="title">ご相談内容  <span class="required">※必須</span></span>[textarea* your-message x5]</label>
+<div class="group zip">
+  <label><span class="title">郵便番号 <span class="required">※必須</span></span>[text* zip id:zip 10/ ]</label>
+</div>
+<div class="group pref">
+  <label><span class="title">都道府県 <span class="required">※必須</span></span>[text* pref id:pref]</label>
 </div>
 <div class="group">
- [submit "送信する"]
+  <label><span class="title">ご住所 <span class="required">※必須</span></span>[text addr id:addr ]</label>
+</div>
+<div class="group">
+  <label><span class="title">お電話番号</span>[text tel]</label>
+</div>
+<div class="group">
+  <label><span class="title">ご相談内容</span>[textarea your-message x4]</label>
+</div>
+<div class="group price">
+  <span class="label"><span class="title">かおり</span></span>
+[checkbox kanori use_label_element "かおり 特選品S 5kg (5,800円)"]
+[checkbox kanori use_label_element "かおり 贈答品A 3kg (2,800円)" "かおり 贈答品A 5kg (4,800円)" "かおり 贈答品A 7kg (6,600円)" "かおり 贈答品A 10kg (9,500円)"]
+[checkbox kanori use_label_element "かおり 自家用B 3kg (2,200円)" "かおり 自家用B 5kg (3,800円)" "かおり 自家用B 7kg (5,200円)" "かおり 自家用B 10g (7,500円)"]
+</div>
+
+<div class="group price">
+  <span class="label"><span class="title">かおり</span></span>
+
+</div>
+
+<div class="group price sweets">
+  <span class="label"><span class="title">お菓子</span></span>
+  <label><span class="title">チョコレート</span>[number chocolate "0"]<span class="unit">個</span></label>
+</div>
+<div class="group">
+[response]<span class="message confirm">よろしければ「送信する」を押してください</span>[back "もどる"][confirm "確認画面へ"][submit "送信する"]
 </div>
 </div>
 
@@ -38,15 +67,14 @@
   <label><span class="title">メールアドレス <span class="required">※必須</span></span>	[email* your-email akismet:author_email ]</label>
 </div>
 <div class="group">
-  <label><span class="title">郵便番号 <span class="required">※必須</span></span>[text* zip id:zip] </label>
+  <label><span class="title">郵便番号 <span class="required">※必須</span></span>[text* zip id:zip 10/ ]</label>
 </div>
 <div class="group">
   <label><span class="title">都道府県 <span class="required">※必須</span></span>[text* pref id:pref]</label>
 </div>
 <div class="group">
-  <label><span class="title">ご住所 <span class="required">※必須</span></span>[text addr id:addr]</td>
-</div>
-<div class="group">
+  <label><span class="title">ご住所 <span class="required">※必須</span></span>[text addr id:addr ]</label>
+</div><div class="group">
   <label><span class="title">お電話番号</span>[text tel]</label>
 </div>
 <div class="group">

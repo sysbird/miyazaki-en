@@ -101,7 +101,12 @@ function miyazaki_en_scripts() {
 		wp_enqueue_script( 'googlemaps', '//maps.googleapis.com/maps/api/js?key=AIzaSyCEFPK8jnSbZX82eWyq8KGSDdttomacAIU');
 	}
 
-	wp_enqueue_script( 'miyazaki_en', get_stylesheet_directory_uri() .'/js/script.js', array( 'jquery' , 'birdfield' ), '1.10');
+	// zipcode
+	if ( is_page()) {
+		wp_enqueue_script( 'ajaxzip3', '//ajaxzip3.github.io/ajaxzip3.js', array( 'jquery' ));
+	}
+
+	wp_enqueue_script( 'miyazaki_en', get_stylesheet_directory_uri() .'/js/script.js', array( 'jquery' , 'birdfield', 'ajaxzip3' ), '1.10');
 }
 add_action( 'wp_enqueue_scripts', 'miyazaki_en_scripts' );
 

@@ -102,10 +102,9 @@ function miyazaki_en_scripts() {
 	}
 
 	// zipcode
-	if ( is_page()) {
-		wp_enqueue_script( 'ajaxzip3', '//ajaxzip3.github.io/ajaxzip3.js', array( 'jquery' ));
-	}
+	wp_enqueue_script( 'ajaxzip3', '//ajaxzip3.github.io/ajaxzip3.js', array( 'jquery' ));
 
+	// miyazaki-en
 	wp_enqueue_script( 'miyazaki_en', get_stylesheet_directory_uri() .'/js/script.js', array( 'jquery' , 'birdfield', 'ajaxzip3' ), '1.10');
 }
 add_action( 'wp_enqueue_scripts', 'miyazaki_en_scripts' );
@@ -526,10 +525,20 @@ function miyazaki_en_favicon() {
 add_action( 'wp_head', 'miyazaki_en_favicon' );
 
 //////////////////////////////////////////////////////
-// set author
-function myplugin_add_custom_box() {
+// set author at post
+function miyazaki_en_add_custom_box() {
 	if( function_exists( 'add_meta_box' )) {
 		add_meta_box( 'myplugin_sectionid', __( '作成者', 'myplugin_textdomain' ), 'post_author_meta_box', 'news', 'advanced' );
 	}
 }
-add_action( 'admin_menu', 'myplugin_add_custom_box' );
+add_action( 'admin_menu', 'miyazaki_en_add_custom_box' );
+
+//////////////////////////////////////////////////////
+// Google Analytics
+function miyazaki_en_wp_head() {
+	if ( !is_user_logged_in() ) {
+		get_template_part( 'google-analytics' );
+	}
+}
+add_action( 'wp_head', 'miyazaki_en_wp_head' );
+

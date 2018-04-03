@@ -555,6 +555,13 @@ div.wpcf7-response-output,
 	border: none;
 }
 
+span.wpcf7-not-valid-tip {
+	font-size: 85%;
+	color: #cf365a;
+	padding-top: 5px;
+}
+
+
 .wpcf7-form p {
   margin: 0 !important;
 }
@@ -589,11 +596,6 @@ div.wpcf7-response-output,
 
 .wpcf7-list-item {
 	margin-left: 0 !important;
-}
-
-span.wpcf7-not-valid-tip {
-	padding-top: 5px;
-	color: #cf365a;
 }
 
 .wpcf7-form input[type="number"]::-webkit-outer-spin-button,

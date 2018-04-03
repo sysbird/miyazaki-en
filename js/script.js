@@ -24,6 +24,7 @@ jQuery(function() {
 			break;
 
 			case 'mail_sent':
+				jQuery( 'input[type=checkbox]:not(:checked)' ).parent( 'label' ).parent( '.wpcf7-list-item' ).css( {'display': 'inline-block'} );
 				jQuery( '.wpcf7-form .message.confirm' ).css( {'display': 'none'} );
 				break;
 		}

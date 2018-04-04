@@ -95,17 +95,23 @@ add_action( 'pre_get_posts', 'miyazaki_en_query' );
 // Enqueue Scripts
 function miyazaki_en_scripts() {
 
+	// css
 	wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
 
 	if ( is_page() || is_home() ) {
-		wp_enqueue_script( 'googlemaps', '//maps.googleapis.com/maps/api/js?key=AIzaSyCEFPK8jnSbZX82eWyq8KGSDdttomacAIU');
+		wp_enqueue_script( 'googlemaps', '//maps.googleapis.com/maps/api/js?key=AIzaSyCEFPK8jnSbZX82eWyq8KGSDdttomacAIU' );
 	}
 
-	// zipcode
-	wp_enqueue_script( 'ajaxzip3', '//ajaxzip3.github.io/ajaxzip3.js', array( 'jquery' ));
+	$deps =  array( 'jquery' , 'birdfield' );
 
-	// miyazaki-en
-	wp_enqueue_script( 'miyazaki_en', get_stylesheet_directory_uri() .'/js/script.js', array( 'jquery' , 'birdfield', 'ajaxzip3' ), '1.10');
+	// zipcode js
+	if( is_page()){
+		wp_enqueue_script( 'ajaxzip3', '//ajaxzip3.github.io/ajaxzip3.js', array( 'jquery' ));
+		$deps[] = 'ajaxzip3';
+	}
+
+	// miyazaki-en js
+	wp_enqueue_script( 'miyazaki_en', get_stylesheet_directory_uri() .'/js/script.js', $deps, '1.10' );
 }
 add_action( 'wp_enqueue_scripts', 'miyazaki_en_scripts' );
 
@@ -541,4 +547,3 @@ function miyazaki_en_wp_head() {
 	}
 }
 add_action( 'wp_head', 'miyazaki_en_wp_head' );
-

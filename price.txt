@@ -11,11 +11,12 @@ MW WP Form
 <div class="group"><label><span class="title">お電話番号</span>[mwform_text name="tel"]</label></div>
 <div class="group"><label><span class="title">ご相談内容</span>[mwform_textarea name="your-message" x4]</label></div>
 <div class="group price">
-<span class="label"><span class="title">かおり</span></span>
-[mwform_checkbox name="kaori_s" children="kaori_s_5:かおり 特選品S 5kg (5800円)" separator=","]
-
-[mwform_checkbox name="kaori_a" children="かおり 贈答品A 3kg (2800円),かおり 贈答品A 5kg (4800円),かおり 贈答品A 7kg (6600円),かおり 贈答品A 10kg (9500円)" separator=","]
-
+<div class="set-checkbox">
+[mwform_checkbox name="kaori_s" children="かおり 贈答品S 5kg (5800円)" separator=","]</div>
+<div class="set-checkbox">
+[mwform_checkbox name="kaori_a" children="かおり 贈答品A 3kg (2800円),かおり 贈答品A 5kg (4800円),かおり 贈答品A 7kg (6600円),かおり 贈答品A 10kg (9500円)" </div>separator=","]</div>
+<div class="set-checkbox">
+[mwform_checkbox name="kaori_b" children="かおり 贈答品B 3kg (2200円),かおり 贈答品B 5kg (3800円),かおり 贈答品B 7kg (5200円),かおり 贈答品B 10kg (7500円)" separator=","]</div>
 </div>
 <div class="group price sweets"><span class="label"><span class="title">お菓子</span></span>
 <label><span class="title">チョコレート</span>[mwform_number name="chocolate" ]<span class="unit">個</span></label></div>
@@ -25,6 +26,71 @@ MW WP Form
 <div class="btnWrap">[mwform_backButton value="修正する" class="btn back"][mwform_submitButton name="submit" class="btn send" confirm_value="入力内容を確認する" submit_value="この内容で送信する"]</div>
 </div>
 </div>
+
+------------------------------
+<div class="group price">
+<div class="set-checkbox">[mwform_checkbox name="kaori_s" children="かおり 贈答品S 5kg (5800円)" separator=","]</div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_a" children="かおり 贈答品A 3kg (2800円),かおり 贈答品A 5kg (4800円),かおり 贈答品A 7kg (6600円),かおり 贈答品A 10kg (9500円)" </div>separator=","]/div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_b" children="かおり 贈答品B 3kg (2200円),かおり 贈答品B 5kg (3800円),かおり 贈答品B 7kg (5200円),かおり 贈答品B 10kg (7500円)" separator=","]/div>
+</div>
+
+<div class="group price">
+<div class="set-checkbox">[mwform_checkbox name="kaori_s" children="あきづき 贈答品S 5kg (5800円)" separator=","]</div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_a" children="あきづき 贈答品A 3kg (2800円),あきづき 贈答品A 5kg (4800円),あきづき 贈答品A 7kg (6600円),あきづき 贈答品A 10kg (9500円)" </div>separator=","]/div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_b" children="あきづき 贈答品B 3kg (2200円),あきづき 贈答品B 5kg (3800円),あきづき 贈答品B 7kg (5200円),あきづき 贈答品B 10kg (7500円)" separator=","]/div>
+</div>
+
+<div class="group price">
+<div class="set-checkbox">[mwform_checkbox name="kaori_s" children="にっこり 贈答品S 5kg (5800円)" separator=","]</div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_a" children="にっこり 贈答品A 3kg (2800円),にっこり 贈答品A 5kg (4800円),にっこり 贈答品A 7kg (6600円),にっこり 贈答品A 10kg (9500円)" </div>separator=","]/div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_b" children="にっこり 贈答品B 3kg (2200円),にっこり 贈答品B 5kg (3800円),にっこり 贈答品B 7kg (5200円),にっこり 贈答品B 10kg (7500円)" separator=","]/div>
+</div>
+
+<div class="group price">
+<div class="set-checkbox">[mwform_checkbox name="kaori_s" children="新興 贈答品S 5kg (5800円)" separator=","]</div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_a" children="新興 贈答品A 3kg (2800円),新興 贈答品A 5kg (4800円),新興 贈答品A 7kg (6600円),新興 贈答品A 10kg (9500円)" </div>separator=","]/div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_b" children="新興 贈答品B 3kg (2200円),新興 贈答品B 5kg (3800円),新興 贈答品B 7kg (5200円),新興 贈答品B 10kg (7500円)" separator=","]/div>
+</div>
+
+<div class="group price">
+<div class="set-checkbox">[mwform_checkbox name="kaori_s" children="新星 贈答品S 5kg (5800円)" separator=","]</div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_a" children="新星 贈答品A 3kg (2800円),新星 贈答品A 5kg (4800円),新星 贈答品A 7kg (6600円),新星 贈答品A 10kg (9500円)" </div>separator=","]/div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_b" children="新星 贈答品B 3kg (2200円),新星 贈答品B 5kg (3800円),新星 贈答品B 7kg (5200円),新星 贈答品B 10kg (7500円)" separator=","]/div>
+</div>
+
+<div class="group price">
+<div class="set-checkbox">[mwform_checkbox name="kaori_s" children="幸水 贈答品S 5kg (5300円)" separator=","]</div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_a" children="幸水 贈答品A 3kg (2500円),幸水 贈答品A 5kg (4300円),幸水 贈答品A 7kg (5900円),幸水 贈答品A 10kg (8500円)" </div>separator=","]/div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_b" children="幸水 贈答品B 3kg (1900円),幸水 贈答品B 5kg (3300円),幸水 贈答品B 7kg (4500円),幸水 贈答品B 10kg (6500円)" separator=","]/div>
+</div>
+
+<div class="group price">
+<div class="set-checkbox">[mwform_checkbox name="kaori_s" children="豊水 贈答品S 5kg (5300円)" separator=","]</div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_a" children="豊水 贈答品A 3kg (2500円),豊水 贈答品A 5kg (4300円),豊水 贈答品A 7kg (5900円),豊水 贈答品A 10kg (8500円)" </div>separator=","]/div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_b" children="豊水 贈答品B 3kg (1900円),豊水 贈答品B 5kg (3300円),豊水 贈答品B 7kg (4500円),豊水 贈答品B 10kg (6500円)" separator=","]/div>
+</div>
+
+<div class="group price">
+<div class="set-checkbox">[mwform_checkbox name="kaori_s" children="稲城 贈答品S 5kg (5300円)" separator=","]</div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_a" children="稲城 贈答品A 3kg (2500円),稲城 贈答品A 5kg (4300円),稲城 贈答品A 7kg (5900円),稲城 贈答品A 10kg (8500円)" </div>separator=","]/div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_b" children="稲城 贈答品B 3kg (1900円),稲城 贈答品B 5kg (3300円),稲城 贈答品B 7kg (4500円),稲城 贈答品B 10kg (6500円)" separator=","]/div>
+</div>
+
+<div class="group price">
+<div class="set-checkbox">[mwform_checkbox name="kaori_s" children="新高 贈答品S 5kg (5300円)" separator=","]</div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_a" children="新高 贈答品A 3kg (2500円),新高 贈答品A 5kg (4300円),新高 贈答品A 7kg (5900円),新高 贈答品A 10kg (8500円)" </div>separator=","]/div>
+<div class="set-checkbox">[mwform_checkbox name="kaori_b" children="新高 贈答品B 3kg (1900円),新高 贈答品B 5kg (3300円),新高 贈答品B 7kg (4500円),新高 贈答品B 10kg (6500円)" separator=","]/div>
+</div>
+
+------------------------------
+[mwform_number name="chocolate"]
+[mwform_number name="chocolate"]
+[mwform_number name="chocolate"]
+[mwform_number name="chocolate"]
+[mwform_number name="chocolate"]
+[mwform_number name="chocolate"]
+------------------------------
+
 
 
 お問い合わせ

@@ -17,7 +17,8 @@ This theme, like WordPress, is licensed under the GPL.
 */
 
 body .wrapper {
-  font-family: Verdana,Arial,"メイリオ", Meiryo, "ヒラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
+	font-family: Verdana,Arial,"メイリオ", Meiryo, "ヒラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
+	font-family: YuGothic,"Yu Gothic","Hiragino Kaku Gothic Pro",sans-serif;
 }
 
 /* header
@@ -60,6 +61,10 @@ body .wrapper {
 }
 
 #header #branding #site-description {
+	display: none;
+}
+
+#content .hentry .entry-meta {
 	display: none;
 }
 
@@ -151,6 +156,11 @@ body .wrapper {
 	color: #6f675d;
 }
 
+#widget-area .widget h3 {
+	border-left: none;
+}
+
+
 #footer #searchform #searchsubmit {
 	background-color: #6f675d;
 }
@@ -167,9 +177,9 @@ body .wrapper {
 	text-decoration: none;
 	background-color: #6f675d;
 	color: #FFF;
-	padding: 5px 10px;
+	padding: 5px 15px;
 	line-height:  2.4;
-	border-radius: 3px;
+	border-radius: 15px;
 	font-size: 0.9em;
 }
 
@@ -214,7 +224,8 @@ body .wrapper {
 }
 
 #content .tile .hentry .entry-header .entry-title {
-	font-size: 1.4rem; }
+	font-size: 1.4rem;
+}
 
 #content .tile .hentry a {
 	display: block;
@@ -375,13 +386,8 @@ body .wrapper {
 
 .page #content .hentry:not(.type-fruits) >.entry-header .entry-title,
 .archive .content-title,
-#content h2 a,
-#footer #widget-area .widget h3 {
+#content h2 a {
 	color: #72ae2d !important;
-}
-
-#footer #widget-area .widget h3 {
-	border-left: none;
 }
 
 #content ul.article .hentry .entry-header,
@@ -391,6 +397,24 @@ body .wrapper {
 .single-news .entry-title {
 	color: #6f675d !important;
 	border-color: #6f675d !important;
+}
+
+#content ul.article .hentry .entry-header,
+#content ul.article .hentry .entry-header .entry-title,
+.category-news .entry-title,
+#content h2,
+.single-news .entry-title,
+#content .hentry .entry-header .entry-title,
+#content .more a,
+#footer #widget-area .widget h3,
+#footer #widget-area a.contact,
+#menu-wrapper .menu ul#menu-primary-items li a {
+	font-weight: 500;
+}
+
+#menu-wrapper .menu ul#menu-primary-items .current-menu-item > a,
+#menu-wrapper .menu ul#menu-primary-items .current-menu-ancestor > a {
+	font-weight: 800;
 }
 
 /* chezrose
@@ -461,31 +485,31 @@ img.alignleft, img.alignright, img.aligncenter {
 
 /* contact form
 --------------------------------------------- */
-.wpcf7-form .form {
+.form {
 	max-width: 650px;
 	width: 100%;
 	border: solid 1px #DDD;
 }
 
-.wpcf7-form .group {
+.form .group {
 	padding: 3%;
 }
 
-.wpcf7-form .group:nth-of-type(2n+1) {
+.form .group:nth-of-type(2n+1) {
 	background-color: #f9f7f3;
 }
 
-.wpcf7-form input:not([type=checkbox]),
-.wpcf7-form textarea {
+.form input:not([type=checkbox]),
+.form textarea {
 	width: 100%;
 }
 
-.wpcf7-form textarea {
+.form textarea {
 	font: inherit;
 }
 
-.wpcf7-form input[type=submit],
-.wpcf7-form input[type=button] {
+.form input[type=submit],
+.form input[type=button] {
 	max-width: 200px;
 	padding: 0.4em;
 	border-radius: 4px;
@@ -496,39 +520,48 @@ img.alignleft, img.alignright, img.aligncenter {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+	border: none;
 }
 
-.wpcf7-form input[type=button].wpcf7c-btn-back {
+.form input[type=button].wpcf7c-btn-back,
+.form .btn.back {
 	background-color: transparent;
 	border-color: #6f675d;
 	color: #6f675d;
+	border: solid 1px #6f675d;
+	margin-right: 10px;
 }
 
-.wpcf7-form input[type=submit]:hover {
+.form input[type=submit]:hover {
 	background-color: #847d74;
 }
 
-.wpcf7-form .title,
-.wpcf7-form .label {
-	font-weight: bold;
+.form input[type=button].wpcf7c-btn-back:hover,
+.form .btn.back:hover {
+	background-color: #F9F9F9;
+}
+
+.form .title,
+.form .label {
+	font-weight: 500;
 	display: block;
 	margin-bottom: 5px;
 	font-size: 1.2em;
 }
 
-.wpcf7-form .required {
+.form .required {
 	font-size: 85%;
 	color: #cf365a ;
 	font-weight: normal;
 }
 
-.wpcf7-form input[type="text"],
-.wpcf7-form input[type="email"],
-.wpcf7-form input[type="password"],
-.wpcf7-form input[type="file"],
-.wpcf7-form input[type="date"],
-.wpcf7-form input[type="number"],
-.wpcf7-form textarea {
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="file"],
+.form input[type="date"],
+.form input[type="number"],
+.form textarea {
   width: 100%;
   border: solid 1px #d2d2d2;
   border-radius: 4px;
@@ -540,19 +573,43 @@ img.alignleft, img.alignright, img.aligncenter {
   appearance: none;
 }
 
-.wpcf7-form input.wpcf7c-conf,
-.wpcf7-form textarea.wpcf7c-conf {
+.form .set-checkbox {
+	margin-bottom: 3%;
+}
+
+.form .set-checkbox label {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.mw_wp_form .horizontal-item + .horizontal-item {
+	margin: 0 0 10px 0 !important;
+}
+
+.form input.wpcf7c-conf,
+.form textarea.wpcf7c-conf {
 	background: #F5F5F5;
 }
 
 div.wpcf7-response-output,
-.wpcf7-form .message.confirm {
+.form .message.confirm,
+.form p.check,
+.form .error,
+.mw_wp_form_send_error {
 	font-size: 85%;
 	color: #cf365a;
 	margin: 0 0 3% 0;
 	padding: 0;
 	display: none;
 	border: none;
+}
+
+.form .error {
+	margin: 1% 0 0 0;
+}
+
+.horizontal-ite {
+	marign-bottom: 3%;
 }
 
 span.wpcf7-not-valid-tip {
@@ -562,11 +619,11 @@ span.wpcf7-not-valid-tip {
 }
 
 
-.wpcf7-form p {
+.form p {
   margin: 0 !important;
 }
 
-.price .wpcf7-form-control-wrap {
+.price .form-control-wrap {
 	display: inline-block;
 	margin-bottom: 1em;
 }
@@ -576,7 +633,7 @@ span.wpcf7-not-valid-tip {
 	width: 50%;
 }
 
-.price.sweets .wpcf7-form-control-wrap {
+.price.sweets .form-control-wrap {
 	display: inline-block;
 }
 
@@ -589,8 +646,8 @@ span.wpcf7-not-valid-tip {
 	width: 3em;
 }
 
-.wpcf7-form .zip input[type="text"],
-.wpcf7-form .pref input[type="text"] {
+.form .zip input[type="text"],
+.form .pref input[type="text"] {
 	width: 50%;
 }
 
@@ -598,33 +655,33 @@ span.wpcf7-not-valid-tip {
 	margin-left: 0 !important;
 }
 
-.wpcf7-form input[type="number"]::-webkit-outer-spin-button,
-.wpcf7-form input[type="number"]::-webkit-inner-spin-button,
-.wpcf7-form p {
+.form input[type="number"]::-webkit-outer-spin-button,
+.form input[type="number"]::-webkit-inner-spin-button,
+.form p {
   -webkit-appearance: none;
   margin: 0;;
 }
 
-.wpcf7-form input[type="number"] {
+.form input[type="number"] {
   -moz-appearance: textfield;
 }
 
 @media screen and (min-width: 660px) {
-	.wpcf7-form input[type=submit],
-	.wpcf7-form input[type=button],
-	.wpcf7-form input[type="text"],
-	.wpcf7-form input[type="email"],
-	.wpcf7-form input[type="password"],
-	.wpcf7-form input[type="file"],
-	.wpcf7-form input[type="date"],
-	.wpcf7-form input[type="number"],
-	.wpcf7-form .wpcf7-form textarea,
-	.wpcf7-form .title,
-	.wpcf7-form .label {
+	.form input[type=submit],
+	.form input[type=button],
+	.form input[type="text"],
+	.form input[type="email"],
+	.form input[type="password"],
+	.form input[type="file"],
+	.form input[type="date"],
+	.form input[type="number"],
+	.form .form textarea,
+	.form .title,
+	.form .label {
 		font-size: 1em;
 	}
 
-	.wpcf7-form input:not([type=checkbox]) {
+	.form input:not([type=checkbox]) {
 		width: 70%;
 	}
 }
@@ -741,6 +798,18 @@ span.wpcf7-not-valid-tip {
 .home #content .headerimage .slideitem .caption {
 	font-size: 4.6vw;
 	width: 80%;
+}
+
+.home #wall:after {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	display: block;
+	content: '';
+	width: 100%;
+	height: 0;
+	padding-top: 2.5%;
+	background: url("images/mask-header.png") no-repeat center bottom / contain;
 }
 
 @media screen and (min-width: 660px) {

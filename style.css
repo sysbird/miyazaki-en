@@ -419,12 +419,21 @@ body .wrapper {
 
 /* chezrose
 -------------------------------------------------------------- */
-.page.chezrose #content .hentry .entry-header .entry-title,
-.page.reserve-chezrose #content .hentry .entry-header .entry-title,
+.page[class$="chezrose"] #content .hentry .entry-header .entry-title,
 #content .chezrose h2 a,
 #content .chezrose h3 a {
 	color: #cf365a !important;
 }
+
+.page[class$="chezrose"] #content a {
+	color: #cf365a !important;
+}
+
+.page[class$="chezrose"] .mw_wp_form_complete p {
+	color: #cf365a !important;
+	border-color: #cf365a;
+}
+
 
 .home #content section.chezrose img {
 	width: 400px;
@@ -513,7 +522,7 @@ img.alignleft, img.alignright, img.aligncenter {
 	max-width: 200px;
 	padding: 0.4em;
 	border-radius: 4px;
-	background-color: #6f675d;
+	background-color: #72ae2d ;
 	color: #FFF;
 	cursor: pointer;
 	font-size: 1.2em;
@@ -521,24 +530,27 @@ img.alignleft, img.alignright, img.aligncenter {
 	-moz-appearance: none;
 	appearance: none;
 	border: none;
+	margin: 2px 0;
 }
 
 .form input[type=button].wpcf7c-btn-back,
 .form .btn.back {
 	background-color: transparent;
-	border-color: #6f675d;
-	color: #6f675d;
-	border: solid 1px #6f675d;
+	color: #72ae2d ;
+	border: solid 1px #72ae2d ;
 	margin-right: 10px;
 }
 
-.form input[type=submit]:hover {
-	background-color: #847d74;
+.page[class$="chezrose"] .form input[type=submit],
+.page[class$="chezrose"] .form input[type=button] {
+	background-color: #cf365a;
 }
 
-.form input[type=button].wpcf7c-btn-back:hover,
-.form .btn.back:hover {
-	background-color: #F9F9F9;
+.page[class$="chezrose"] .form input[type=button].wpcf7c-btn-back,
+.page[class$="chezrose"] .form .btn.back {
+	background-color: transparent;
+	color: #cf365a;
+	border: solid 1px #cf365a ;
 }
 
 .form .title,
@@ -573,11 +585,11 @@ img.alignleft, img.alignright, img.aligncenter {
   appearance: none;
 }
 
-.form .set-checkbox {
+.form .group .set-checkbox:not(:last-child) {
 	margin-bottom: 3%;
 }
 
-.form .set-checkbox label {
+.form .group .set-checkbox label {
 	display: inline-block;
 	margin-right: 5px;
 }
@@ -591,6 +603,18 @@ img.alignleft, img.alignright, img.aligncenter {
 	background: #F5F5F5;
 }
 
+.mw_wp_form_preview label,
+.mw_wp_form_preview .set-checkbox {
+	font-size: 1.4em;
+	line-height: 1.4;
+}
+
+.mw_wp_form_preview .title {
+	font-size: 0.8em;
+	margin-bottom: 3%;
+	color: #AAA;
+}
+
 div.wpcf7-response-output,
 .form .message.confirm,
 .form p.check,
@@ -602,6 +626,12 @@ div.wpcf7-response-output,
 	padding: 0;
 	display: none;
 	border: none;
+}
+
+.mw_wp_form_complete p {
+	color: #72ae2d !important;
+	border:solid 1px #72ae2d;
+	padding: 3%;
 }
 
 .form .error {
@@ -679,6 +709,15 @@ span.wpcf7-not-valid-tip {
 	.form .title,
 	.form .label {
 		font-size: 1em;
+	}
+
+	.mw_wp_form_preview label,
+	.mw_wp_form_preview .set-checkbox {
+		font-size: 1.2em;
+	}
+
+	.mw_wp_form_preview .title {
+		font-size: 0.8em;
 	}
 
 	.form input:not([type=checkbox]) {

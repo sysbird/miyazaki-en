@@ -108,6 +108,10 @@ function miyazaki_en_scripts() {
 	if( is_page()){
 		wp_enqueue_script( 'ajaxzip3', '//ajaxzip3.github.io/ajaxzip3.js', array( 'jquery' ));
 		$deps[] = 'ajaxzip3';
+
+		wp_enqueue_style( 'magnific-popup', get_stylesheet_directory_uri().'/js/Magnific-Popup/magnific-popup.css' );
+		wp_enqueue_script( 'magnific-popup', get_stylesheet_directory_uri() .'/js/Magnific-Popup/jquery.magnific-popup.min.js', array( 'jquery' ), '3.3.0');
+		$deps[] = 'magnific-popup';
 	}
 
 	// miyazaki-en js
@@ -312,6 +316,33 @@ function miyazaki_en_link ( $atts ) {
 add_shortcode( 'miyazaki_en_link', 'miyazaki_en_link' );
 
 //////////////////////////////////////////////////////
+// Shortcode popup link
+function miyazaki_en_popuplink ( $atts ) {
+
+	$atts = shortcode_atts( array( 'title' => '', 'pagename' => '', 'pageid' => '' ), $atts );
+	$title = $atts['title'];
+	$pagename = $atts['pagename'];
+	$pageid = $atts['pageid'];
+
+	if( !strcmp( '' ,$pagename )){
+		return '';
+	}
+
+	if( !strcmp( '' ,$pageid )){
+		return '';
+	}
+
+	if( '' === $title ){
+		$title = $pagename;
+	}
+
+	$html = '<a href="#" class="miyazaki_en_link popup" pagename="' .$pagename .'" pageid="' .$pageid .'">' .$title .'</a>';
+
+	return $html;
+}
+add_shortcode( 'miyazaki_en_popuplink', 'miyazaki_en_popuplink' );
+
+//////////////////////////////////////////////////////
 // Display the Featured Image at fruit page
 function miyazaki_en_post_image_html( $html, $post_id, $post_image_id ) {
 
@@ -388,14 +419,14 @@ add_filter( 'query_vars', 'miyazaki_en_query_vars' );
 /////////////////////////////////////////////////////
 // Add WP REST API Endpoints
 function miyazaki_en_rest_api_init() {
-	register_rest_route( 'get_fruits', '/(?P<id>\d+)', array(
+	register_rest_route( 'get_page', '/(?<pagename>\d+)', array(
 		'methods' => 'GET',
-		'callback' => 'miyazaki_en_get_fruits',
+		'callback' => 'miyazaki_en_get_page',
 		) );
 }
 add_action( 'rest_api_init', 'miyazaki_en_rest_api_init' );
 
-function miyazaki_en_get_fruits( $params ) {
+function miyazaki_en_get_page( $params ) {
 
 	$find = FALSE;
 	$id = 0;
@@ -403,9 +434,10 @@ function miyazaki_en_get_fruits( $params ) {
 	$content = '';
 
 	$args = array(
-		'p'			=> $params['id'],
+//		'pagename'		=> $params['pagename'],
+		'p'		=> 79,
 		'posts_per_page'	=> 1,
-		'post_type'			=> 'fruits',
+		'post_type'		=> 'page',
 		'post_status'		=> 'publish',
 	);
 

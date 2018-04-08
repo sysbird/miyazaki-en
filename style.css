@@ -17,8 +17,18 @@ This theme, like WordPress, is licensed under the GPL.
 */
 
 body .wrapper {
-	font-family: Verdana,Arial,"メイリオ", Meiryo, "ヒラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
-	font-family: YuGothic,"Yu Gothic","Hiragino Kaku Gothic Pro",sans-serif;
+	font-family: -apple-system, blinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', YuGothicM, YuGothic, Meiryo, sans-serif;
+}
+
+@media screen\0 {
+	body .wrapper {
+		font-family: 'Segoe UI', Meiryo, sans-serif;
+	}
+}
+
+img.alignleft,
+img.alignright {
+	float: nene;
 }
 
 /* header
@@ -109,7 +119,7 @@ body .wrapper {
 
 #content .more a {
 	display: block;
-	background-color: #6f675d;
+	background-color: #847d74;
 	color: #FFF;
 	padding: 0.8em;
 	border-radius: 4px;
@@ -162,11 +172,11 @@ body .wrapper {
 
 
 #footer #searchform #searchsubmit {
-	background-color: #6f675d;
+	background-color: #847d74;
 }
 
 #footer #searchform #s {
-	border: solid 1px #6f675d;
+	border: solid 1px #847d74;
 }
 
 #footer #widget-area .right  {
@@ -175,7 +185,7 @@ body .wrapper {
 
 #footer #widget-area a.contact {
 	text-decoration: none;
-	background-color: #6f675d;
+	background-color: #847d74;
 	color: #FFF;
 	padding: 5px 15px;
 	line-height:  2.4;
@@ -382,6 +392,7 @@ body .wrapper {
 
 #content h2 {
 	font-size: 1.8rem;
+	clear: both;
 }
 
 .page #content .hentry:not(.type-fruits) >.entry-header .entry-title,
@@ -648,10 +659,25 @@ span.wpcf7-not-valid-tip {
 	padding-top: 5px;
 }
 
-
 .form p {
   margin: 0 !important;
 }
+
+.form .example {
+	padding-top: 0.8em;
+}
+
+.form .example .title {
+	padding-bottom: 5px;
+	color: #999;
+}
+
+.form .example .text {
+	display: block;
+	color: #999;
+	line-height: 1.4;
+}
+
 
 .price .form-control-wrap {
 	display: inline-block;
@@ -728,6 +754,14 @@ span.wpcf7-not-valid-tip {
 /* Media queries for responsive design
 --------------------------------------------- */
 @media screen and (min-width: 660px) {
+
+	img.alignleft {
+		float: left;
+	}
+
+	img.alignright {
+		float: right;
+	}
 
 	#menu-wrapper .menu ul#menu-primary-items li >a:before {
 		display: inline-block;
@@ -848,7 +882,24 @@ span.wpcf7-not-valid-tip {
 	width: 100%;
 	height: 0;
 	padding-top: 2.5%;
-	background: url("images/mask-header.png") no-repeat center bottom / contain;
+	background: url("images/mask-header-2.png") no-repeat center bottom / contain;
+}
+
+/* magnific-popup
+--------------------------------------------- */
+.mfp-content {
+	background: #FFF;
+	padding: 10px;
+}
+
+.mfp-inline-holder .mfp-content,
+.mfp-ajax-holder .mfp-content {
+	width: 85%;
+	max-width: 600px;
+}
+
+.mfp-content .entry-title {
+	font-size: 2em;
 }
 
 @media screen and (min-width: 660px) {

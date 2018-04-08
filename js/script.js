@@ -15,28 +15,29 @@ jQuery(function() {
 		AjaxZip3.zip2addr( this,'','pref','addr' );
 	})
 
-	// form confirm
-	document.addEventListener( 'wpcf7submit', function( event ) {
-		switch ( event.detail.status ) {
-			case 'wpcf7c_confirmed':
-				jQuery( 'input[type=checkbox].wpcf7c-conf:not(:checked)' ).parent( 'label' ).parent( '.wpcf7-list-item' ).css( {'display': 'none'} );
-				jQuery( '.wpcf7-form .message.confirm' ).css( {'display': 'block'} );
-			break;
+	// popup link
+	jQuery('a.popup').on('click', function() {
+		var pageid  = jQuery(this).attr('pageid');
+		var url = '/wp-json/get_page/' + pageid + '?_jsonp=?';
+		jQuery.ajax({
+			type: 'GET',
+			url: url,
+			dataType: 'jsonp'
+			}).done(function(data, status, xhr) {
 
-			case 'mail_sent':
-				jQuery( 'input[type=checkbox]:not(:checked)' ).parent( 'label' ).parent( '.wpcf7-list-item' ).css( {'display': 'inline-block'} );
-				jQuery( '.wpcf7-form .message.confirm' ).css( {'display': 'none'} );
-				break;
-		}
-	}, false );
+				// popup
+				jQuery.magnificPopup.open({
+					items: {
+						src: '<div  id="content"><div class="entry-title">' + data.title + '</div> ' + data.content +'</div>',
+						type: 'inline'
+					}
+				});
 
-	// form confirm back
-	jQuery('.wpcf7c-btn-back').on("click", function(){
-			jQuery( 'input[type=checkbox]:not(:checked)' ).parent( 'label' ).parent( '.wpcf7-list-item' ).css( {'display': 'inline-block'} );
-			jQuery( '.wpcf7-form .message.confirm' ).css( {'display': 'none'} );
+			}).fail(function(xhr, status, error) {
+		});
+
 		return false;
 	});
-
 
 });
 

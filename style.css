@@ -17,18 +17,13 @@ This theme, like WordPress, is licensed under the GPL.
 */
 
 body .wrapper {
-	font-family: -apple-system, blinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', YuGothicM, YuGothic, Meiryo, sans-serif;
+  font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial','Hiragino Sans', YuGothic, 'Yu Gothic', Meiryo, 'MS PGothic';
 }
 
 @media screen\0 {
 	body .wrapper {
 		font-family: 'Segoe UI', Meiryo, sans-serif;
 	}
-}
-
-img.alignleft,
-img.alignright {
-	float: nene;
 }
 
 /* header
@@ -84,14 +79,14 @@ img.alignright {
 
 /* home
 --------------------------------------------- */
-.home #content .container {
-	padding: 1.6em 0;
-}
-
 .home #content .information {
 	background: #FFF;
 	position: relative;
 	z-index: 1;
+}
+
+.home #content .information .container {
+	padding: 1.6em 0;
 }
 
 .home #content section:nth-child(odd) {
@@ -103,7 +98,7 @@ img.alignright {
 }
 
 .home #content #blog {
-	padding-top: 0;
+	padding-top: 1.6em;
 }
 
 .home #content #blog ul.article {
@@ -167,9 +162,12 @@ img.alignright {
 }
 
 #widget-area .widget h3 {
-	border-left: none;
+	border: none;
 }
 
+#searchform {
+	max-width: 320px;
+}
 
 #footer #searchform #searchsubmit {
 	background-color: #847d74;
@@ -184,13 +182,15 @@ img.alignright {
 }
 
 #footer #widget-area a.contact {
+	display: inline-block;
 	text-decoration: none;
 	background-color: #847d74;
 	color: #FFF;
-	padding: 5px 15px;
+	padding: 0 15px;
 	line-height:  2.4;
-	border-radius: 15px;
+	border-radius: 20px;
 	font-size: 0.9em;
+	margin-top: 20px;
 }
 
 #footer #widget-area .contact:before {
@@ -544,7 +544,6 @@ img.alignleft, img.alignright, img.aligncenter {
 	margin: 2px 0;
 }
 
-.form input[type=button].wpcf7c-btn-back,
 .form .btn.back {
 	background-color: transparent;
 	color: #72ae2d ;
@@ -557,7 +556,6 @@ img.alignleft, img.alignright, img.aligncenter {
 	background-color: #cf365a;
 }
 
-.page[class$="chezrose"] .form input[type=button].wpcf7c-btn-back,
 .page[class$="chezrose"] .form .btn.back {
 	background-color: transparent;
 	color: #cf365a;
@@ -605,15 +603,6 @@ img.alignleft, img.alignright, img.aligncenter {
 	margin-right: 5px;
 }
 
-.mw_wp_form .horizontal-item + .horizontal-item {
-	margin: 0 0 10px 0 !important;
-}
-
-.form input.wpcf7c-conf,
-.form textarea.wpcf7c-conf {
-	background: #F5F5F5;
-}
-
 .mw_wp_form_preview label,
 .mw_wp_form_preview .set-checkbox {
 	font-size: 1.4em;
@@ -626,9 +615,6 @@ img.alignleft, img.alignright, img.aligncenter {
 	color: #AAA;
 }
 
-div.wpcf7-response-output,
-.form .message.confirm,
-.form p.check,
 .form .error,
 .mw_wp_form_send_error {
 	font-size: 85%;
@@ -643,20 +629,6 @@ div.wpcf7-response-output,
 	color: #72ae2d !important;
 	border:solid 1px #72ae2d;
 	padding: 3%;
-}
-
-.form .error {
-	margin: 1% 0 0 0;
-}
-
-.horizontal-ite {
-	marign-bottom: 3%;
-}
-
-span.wpcf7-not-valid-tip {
-	font-size: 85%;
-	color: #cf365a;
-	padding-top: 5px;
 }
 
 .form p {
@@ -707,10 +679,6 @@ span.wpcf7-not-valid-tip {
 	width: 50%;
 }
 
-.wpcf7-list-item {
-	margin-left: 0 !important;
-}
-
 .form input[type="number"]::-webkit-outer-spin-button,
 .form input[type="number"]::-webkit-inner-spin-button,
 .form p {
@@ -755,14 +723,6 @@ span.wpcf7-not-valid-tip {
 --------------------------------------------- */
 @media screen and (min-width: 660px) {
 
-	img.alignleft {
-		float: left;
-	}
-
-	img.alignright {
-		float: right;
-	}
-
 	#menu-wrapper .menu ul#menu-primary-items li >a:before {
 		display: inline-block;
 		font-family: FontAwesome;
@@ -781,6 +741,10 @@ span.wpcf7-not-valid-tip {
 	.home #content .information .container {
 		overflow: hidden;
 		*zoom: 1;
+	}
+
+	.home #content #blog {
+		padding-top: 1.4%;
 	}
 
 	#content .more {
@@ -851,16 +815,16 @@ span.wpcf7-not-valid-tip {
 	}
 
 	#footer #widget-area .left {
-		width: 400px;
+		width: 440px;
 		float: left;
 	}
 
 	#footer #widget-area .left .widget {
-		width: 400px;
+		width: 440px;
 	}
 
 	#footer #widget-area .right  {
-		width: 500px;
+		width: 460px;
 		margin-top: 20px;
 		float: right;
 	}

@@ -13,7 +13,7 @@
   js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.5&appId=6028400162";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-page" data-href="https://www.facebook.com/宮崎園-428742304135708" data-tabs="timeline" data-width="500" data-height="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/宮崎園-428742304135708"><a href="https://www.facebook.com/宮崎園-428742304135708">宮崎園</a></blockquote></div></div>
+<div class="fb-page" data-href="https://www.facebook.com/宮崎園-428742304135708" data-tabs="timeline" data-width="460" data-height="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/宮崎園-428742304135708"><a href="https://www.facebook.com/宮崎園-428742304135708">宮崎園</a></blockquote></div></div>
 				</div>
 			</div>
 		</section>

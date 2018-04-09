@@ -10,15 +10,15 @@
 	<?php if ( have_posts()) : ?>
 		<section id="blog">
 			<div class="container">
-				<?php $category_id = get_cat_ID( 'お知らせ' ); ?>
-				<h2><a href="<?php echo get_category_link( $category_id ); ?>">お知らせ</a></h2>
+				<?php $category_id = get_cat_ID( '宮﨑園ブログ' ); ?>
+				<h2><a href="<?php echo get_category_link( $category_id ); ?>">宮﨑園ブログ</a></h2>
 
 				<ul class="article">
 				<?php while ( have_posts()) : the_post(); ?>
 					<?php get_template_part( 'content', 'home' ); ?>
 				<?php endwhile; ?>
 				</ul>
-				<div class="more"><a href="<?php echo get_category_link( $category_id ); ?>" >「お知らせ」をもっと見る</a></div>
+				<div class="more"><a href="<?php echo get_category_link( $category_id ); ?>" >「宮﨑園ブログ」をもっと見る</a></div>
 			</div>
 		</section>
 	<?php endif; ?>

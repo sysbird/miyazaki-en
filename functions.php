@@ -319,24 +319,19 @@ add_shortcode( 'miyazaki_en_link', 'miyazaki_en_link' );
 // Shortcode popup link
 function miyazaki_en_popuplink ( $atts ) {
 
-	$atts = shortcode_atts( array( 'title' => '', 'pagename' => '', 'pageid' => '' ), $atts );
+	$atts = shortcode_atts( array( 'title' => '', 'pagetitle' => '' ), $atts );
 	$title = $atts['title'];
-	$pagename = $atts['pagename'];
-	$pageid = $atts['pageid'];
+	$pagetitle = $atts['pagetitle'];
 
-	if( !strcmp( '' ,$pagename )){
-		return '';
-	}
-
-	if( !strcmp( '' ,$pageid )){
+	if( !strcmp( '' ,$pagetitle )){
 		return '';
 	}
 
 	if( '' === $title ){
-		$title = $pagename;
+		$title = $pagetitle;
 	}
 
-	$html = '<a href="#" class="miyazaki_en_link popup" pagename="' .$pagename .'" pageid="' .$pageid .'">' .$title .'</a>';
+	$html = '<a href="#" class="miyazaki_en_link popup" pagetitle="' .$pagetitle .'">' .$title .'</a>';
 
 	return $html;
 }
@@ -419,7 +414,7 @@ add_filter( 'query_vars', 'miyazaki_en_query_vars' );
 /////////////////////////////////////////////////////
 // Add WP REST API Endpoints
 function miyazaki_en_rest_api_init() {
-	register_rest_route( 'get_page', '/(?<pagename>\d+)', array(
+	register_rest_route( 'get_page', '/(?P<pagetitle>.*)', array(
 		'methods' => 'GET',
 		'callback' => 'miyazaki_en_get_page',
 		) );
@@ -428,41 +423,16 @@ add_action( 'rest_api_init', 'miyazaki_en_rest_api_init' );
 
 function miyazaki_en_get_page( $params ) {
 
-	$find = FALSE;
-	$id = 0;
-	$title = '';
-	$content = '';
-
-	$args = array(
-//		'pagename'		=> $params['pagename'],
-		'p'		=> 79,
-		'posts_per_page'	=> 1,
-		'post_type'		=> 'page',
-		'post_status'		=> 'publish',
-	);
-
-	$the_query = new WP_Query($args);
-	if ( $the_query->have_posts() ) :
-		$find = TRUE;
-		while ( $the_query->have_posts() ) : $the_query->the_post();
-			$id = get_the_ID();
-			$title = get_the_title( );
-			$content = apply_filters('the_content', get_the_content() );
-			break;
-		endwhile;
-
-		wp_reset_postdata();
-	endif;
-
-	if($find) {
+	$page = get_page_by_title( urldecode( $params['pagetitle'] ));
+	if( $page ) {
 		return new WP_REST_Response( array(
-			'id'		=> $id,
-			'title'		=> $title,
-			'content'	=> $content,
+			'id'		=> $page->ID,
+			'title'		=> get_the_title( $page->ID ),
+			'content'	=> $page->post_content
 		) );
 	}
 	else{
-		$response = new WP_Error('error_code', 'Sorry, no posts matched your criteria.');
+		$response = new WP_Error('error_code', 'Sorry, no posts matched your criteria.' );
 		return $response;
 	}
 }

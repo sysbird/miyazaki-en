@@ -17,8 +17,8 @@ jQuery(function() {
 
 	// popup link
 	jQuery('a.popup').on('click', function() {
-		var pageid  = jQuery(this).attr('pageid');
-		var url = '/wp-json/get_page/' + pageid + '?_jsonp=?';
+		var pagetitle  = jQuery(this).attr('pagetitle');
+		var url = '/wp-json/get_page/' + encodeURIComponent(pagetitle) + '?_jsonp=?';
 		jQuery.ajax({
 			type: 'GET',
 			url: url,

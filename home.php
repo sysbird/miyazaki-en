@@ -4,7 +4,9 @@
 	<?php birdfield_content_header(); ?>
 
 	<?php if( ! is_paged() ): ?>
-		<?php birdfield_headerslider(); ?>
+		<?php if( !( birdfield_headerslider())): ?>
+			<section id="wall" class="no-image"></section>
+		<?php endif; ?>
 	<?php endif; ?>
 
 	<?php if ( have_posts()) : ?>

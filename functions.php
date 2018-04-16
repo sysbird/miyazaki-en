@@ -465,15 +465,21 @@ function miyazaki_en_get_sweets_price() {
 // bread crumb
 function miyazaki_en_content_header( $arg ){
 
-	$html = '';
 	if( !is_home()){
 		if ( class_exists( 'WP_SiteManager_bread_crumb' ) ) {
 			$html .= '<div class="bread_crumb_wrapper">';
 			$html .= WP_SiteManager_bread_crumb::bread_crumb( array( 'echo'=>'false', 'home_label' => 'ホーム', 'elm_class' => 'bread_crumb container' ));
 			$html .= '</div>';
 		}
+
+		if(function_exists('bcn_display')){
+			echo '<div class="bread_crumb_wrapper">';
+			bcn_display();
+			echo '</div>';
+		}
+
 	}
-	return $html;
+
 }
 add_action( 'birdfield_content_header', 'miyazaki_en_content_header' );
 
@@ -533,13 +539,14 @@ function miyazaki_en_favicon() {
 add_action( 'wp_head', 'miyazaki_en_favicon' );
 
 //////////////////////////////////////////////////////
-// set author at post
-function miyazaki_en_add_custom_box() {
-	if( function_exists( 'add_meta_box' )) {
-		add_meta_box( 'myplugin_sectionid', __( '作成者', 'myplugin_textdomain' ), 'post_author_meta_box', 'news', 'advanced' );
-	}
+// remove theme customize
+function miyazaki_en_customize_register( $wp_customize ) {
+	$wp_customize->remove_control( 'header_image' );
+	$wp_customize->remove_section( 'static_front_page' );
+	$wp_customize->remove_section( 'background_image' );
+	$wp_customize->remove_section( 'custom_css' );
 }
-add_action( 'admin_menu', 'miyazaki_en_add_custom_box' );
+add_action( 'customize_register', 'miyazaki_en_customize_register' );
 
 //////////////////////////////////////////////////////
 // Google Analytics

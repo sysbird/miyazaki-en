@@ -422,13 +422,50 @@ function miyazaki_en_rest_api_init() {
 add_action( 'rest_api_init', 'miyazaki_en_rest_api_init' );
 
 function miyazaki_en_get_page( $params ) {
-
+/*
 	$page = get_page_by_title( urldecode( $params['pagetitle'] ));
 	if( $page ) {
 		return new WP_REST_Response( array(
 			'id'		=> $page->ID,
 			'title'		=> get_the_title( $page->ID ),
-			'content'	=> $page->post_content
+			'content'	=> apply_filters( 'the_content', $page->post_content )
+		) );
+	}
+	else{
+		$response = new WP_Error('error_code', 'Sorry, no posts matched your criteria.' );
+		return $response;
+	}
+*/
+	$find = FALSE;
+	$id = 0;
+	$title = '';
+	$content = '';
+
+	$args = array(
+		'title'			=> urldecode( $params[ 'pagetitle' ] ),
+		'posts_per_page'	=> 1,
+		'post_type'		=> 'page',
+		'post_status'		=> 'publish',
+	);
+
+	$the_query = new WP_Query($args);
+	if ( $the_query->have_posts() ) :
+		$find = TRUE;
+		while ( $the_query->have_posts() ) : $the_query->the_post();
+			$id = get_the_ID();
+			$title = get_the_title( );
+			$content = apply_filters('the_content', get_the_content() );
+			break;
+		endwhile;
+
+		wp_reset_postdata();
+	endif;
+
+	if($find) {
+		return new WP_REST_Response( array(
+			'id'		=> $id,
+			'title'		=> $title,
+			'content'	=> $content,
 		) );
 	}
 	else{
@@ -465,20 +502,17 @@ function miyazaki_en_get_sweets_price() {
 // bread crumb
 function miyazaki_en_content_header( $arg ){
 
+	$html = '';
+
 	if( !is_home()){
 		if ( class_exists( 'WP_SiteManager_bread_crumb' ) ) {
 			$html .= '<div class="bread_crumb_wrapper">';
 			$html .= WP_SiteManager_bread_crumb::bread_crumb( array( 'echo'=>'false', 'home_label' => 'ホーム', 'elm_class' => 'bread_crumb container' ));
 			$html .= '</div>';
 		}
-
-		if(function_exists('bcn_display')){
-			echo '<div class="bread_crumb_wrapper">';
-			bcn_display();
-			echo '</div>';
-		}
-
 	}
+
+	return $html;
 
 }
 add_action( 'birdfield_content_header', 'miyazaki_en_content_header' );
@@ -556,3 +590,47 @@ function miyazaki_en_wp_head() {
 	}
 }
 add_action( 'wp_head', 'miyazaki_en_wp_head' );
+
+
+//////////////////////////////////////////////////////
+// image optimize
+function miyazaki_en_handle_upload( $file )
+{
+	if( $file['type'] == 'image/jpeg' ) {
+		$image = wp_get_image_editor( $file[ 'file' ] );
+
+		if (! is_wp_error($image)) {
+			$exif = exif_read_data( $file[ 'file' ] );
+			$orientation = $exif[ 'Orientation' ];
+			$max_width = 930;
+			$max_height = 930;
+			$size = $image->get_size();
+			$width = $size[ 'width' ];
+			$height = $size[ 'height' ];
+
+			if ( $width > $max_width || $height > $max_height ) {
+				$image->resize( $max_width, $max_height, false );
+			}
+
+			if (! empty($orientation)) {
+				switch ($orientation) {
+					case 8:
+						$image->rotate( 90 );
+						break;
+
+					case 3:
+						$image->rotate( 180 );
+						break;
+
+					case 6:
+						$image->rotate( -90 );
+						break;
+				}
+			}
+			$image->save( $file[ 'file' ]) ;
+		}
+	}
+
+	return $file;
+}
+add_action( 'wp_handle_upload', 'miyazaki_en_handle_upload' );

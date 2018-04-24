@@ -123,7 +123,6 @@ body .wrapper {
 
 #content .more a:before {
 	content: "\f054";
-	display: inline-block;
 	font-family: FontAwesome;
 	font-style: normal;
 	font-weight: normal;
@@ -134,7 +133,6 @@ body .wrapper {
 
 #content a.miyazaki_en_link:before {
 	content: "\f0a9";
-	display: inline-block;
 	font-family: FontAwesome;
 	font-style: normal;
 	font-weight: normal;
@@ -195,7 +193,6 @@ body .wrapper {
 
 #footer #widget-area .contact:before {
 	content: "\f0e0";
-	display: inline-block;
 	font-family: FontAwesome;
 	font-style: normal;
 	font-weight: normal;
@@ -430,17 +427,17 @@ body .wrapper {
 
 /* chezrose
 -------------------------------------------------------------- */
-.page[class$="chezrose"] #content .hentry .entry-header .entry-title,
+.page[class*="chezrose"] #content .hentry .entry-header .entry-title,
 #content .chezrose h2 a,
 #content .chezrose h3 a {
 	color: #cf365a !important;
 }
 
-.page[class$="chezrose"] #content a {
+.page[class*="chezrose"] #content a {
 	color: #cf365a !important;
 }
 
-.page[class$="chezrose"] .mw_wp_form_complete p {
+.page[class*="chezrose"] .mw_wp_form_complete p {
 	color: #cf365a !important;
 	border-color: #cf365a;
 }
@@ -492,7 +489,6 @@ img.alignleft, img.alignright, img.aligncenter {
 
 #content ul.bread_crumb li a:after {
 	content: "\f105";
-	display: inline-block;
 	font-family: FontAwesome;
 	font-style: normal;
 	font-weight: normal;
@@ -551,12 +547,12 @@ img.alignleft, img.alignright, img.aligncenter {
 	margin-right: 10px;
 }
 
-.page[class$="chezrose"] .form input[type=submit],
-.page[class$="chezrose"] .form input[type=button] {
+.page[class*="chezrose"] .form input[type=submit],
+.page[class*="chezrose"] .form input[type=button] {
 	background-color: #cf365a;
 }
 
-.page[class$="chezrose"] .form .btn.back {
+.page[class*="chezrose"] .form .btn.back {
 	background-color: transparent;
 	color: #cf365a;
 	border: solid 1px #cf365a ;
@@ -636,7 +632,7 @@ img.alignleft, img.alignright, img.aligncenter {
 }
 
 .form .example {
-	padding-top: 0.8em;
+	padding: 0.8em 0 0.4em;
 }
 
 .form .example .title {
@@ -724,7 +720,6 @@ img.alignleft, img.alignright, img.aligncenter {
 @media screen and (min-width: 660px) {
 
 	#menu-wrapper .menu ul#menu-primary-items li >a:before {
-		display: inline-block;
 		font-family: FontAwesome;
 		font-style: normal;
 		font-weight: normal;
@@ -849,6 +844,38 @@ img.alignleft, img.alignright, img.aligncenter {
 	background: url("images/mask-header-2.png") no-repeat center bottom / contain;
 }
 
+/* delivery-charge
+--------------------------------------------- */
+.area {
+	border-left: solid 1em #CCC;
+	padding-left: 0.4em;
+}
+
+.area.kanto {
+	border-color: #fceab2;
+}
+
+.area.kansai {
+	border-color: #43f94f;
+}
+
+.area.cyugoku {
+	border-color: #ff973b;
+}
+
+.area.shikoku {
+	border-color: #c2a600;
+
+}
+
+.area.hokkaido {
+	border-color: #aa55ff;
+}
+
+.area.okinawa {
+	border-color: #ee4250;
+}
+
 /* magnific-popup
 --------------------------------------------- */
 .mfp-content {
@@ -864,6 +891,18 @@ img.alignleft, img.alignright, img.aligncenter {
 
 .mfp-content .entry-title {
 	font-size: 2em;
+	margin-bottom: 10px;
+}
+
+.mfp-content #content p {
+	line-height: 1.4;
+	margin-bottom: 0.8em;
+}
+
+.mfp-content #content blockquote {
+	border: dashed 1px #AAA;
+	padding: 10px;
+	margin-left: 0;
 }
 
 @media screen and (min-width: 660px) {

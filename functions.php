@@ -22,21 +22,6 @@ function miyazaki_en_init() {
  	// add tags at page
 	register_taxonomy_for_object_type('post_tag', 'page');
 
-	// add post type news
-/*	$labels = array(
-		'name'		=> 'お知らせ',
-		'all_items'	=> 'お知らせの一覧',
-		);
-	$args = array(
-		'labels'			=> $labels,
-		'supports'			=> array( 'title','editor', 'thumbnail' ),
-		'public'			=> true,	// 公開するかどうが
-		'show_ui'			=> true,	// メニューに表示するかどうか
-		'menu_position'		=> 5,		// メニューの表示位置
-		'has_archive'		=> true,	// アーカイブページの作成
-		);
-	register_post_type( 'news', $args );
-*/
 	// add post type fruits
 	$labels = array(
 		'name'		=> 'くだもの・野菜',
@@ -70,6 +55,22 @@ function miyazaki_en_init() {
 		);
 
 	register_post_type( 'sweets', $args );
+
+	// add post type news
+	$labels = array(
+		'name'		=> '更新マニュアル',
+		'all_items'	=> '更新マニュアルの一覧',
+		);
+	$args = array(
+		'labels'			=> $labels,
+		'supports'			=> array( 'title','editor', 'thumbnail' ),
+		'public'			=> true,	// 公開するかどうが
+		'show_ui'			=> true,	// メニューに表示するかどうか
+		'menu_position'		=> 5,		// メニューの表示位置
+		'has_archive'		=> true,	// アーカイブページの作成
+		);
+	register_post_type( 'manual', $args );
+
 }
 add_action( 'init', 'miyazaki_en_init', 0 );
 
@@ -99,7 +100,7 @@ function miyazaki_en_scripts() {
 	wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
 
 	if ( is_page() || is_home() ) {
-		wp_enqueue_script( 'googlemaps', '//maps.googleapis.com/maps/api/js?key=AIzaSyCEFPK8jnSbZX82eWyq8KGSDdttomacAIU' );
+		wp_enqueue_script( 'googlemaps', '//maps.googleapis.com/maps/api/js?key=AIzaSyBqRX-Yuy2t26Sj3EHaheWV8eHRqnv3Hns' );
 	}
 
 	$deps =  array( 'jquery' , 'birdfield' );
